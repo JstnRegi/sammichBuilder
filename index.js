@@ -20,8 +20,19 @@ app.get('/', function(req,res) {
     res.sendFile(path.join(views, 'index.html'))
 });
 
+app.get('/signup', function(req,res) {
+   res.sendFile(path.join(views, 'signup.html'))
+});
 
+app.post('/signup', function(req,res) {
+    //post and create logic
+});
+
+app.get('/profile', function(req,res) {
+   //sendFile profile.html
+});
 
 app.listen(port, function() {
    console.log('Listening on port ' + port);
+
 });
