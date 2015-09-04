@@ -2,7 +2,19 @@
     height: 300px
 }
 
+#sign-login {
+    height: 50px;
+}
 .roomy {
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.black-background {
+    background-color: #181818;
+}
+
+.row.black-background {
+    padding-top: 2px;
+    height: 40px;
 }
