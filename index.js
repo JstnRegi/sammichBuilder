@@ -20,7 +20,7 @@ app.get('/', function(req,res) {
     res.sendFile(path.join(views, 'index.html'))
 });
 
-app,get('/signup', function(req,res) {
+app.get('/signup', function(req,res) {
    res.sendFile(path.join(views, 'signup.html'))
 });
 
@@ -34,4 +34,5 @@ app.get('/profile', function(req,res) {
 
 app.listen(port, function() {
    console.log('Listening on port ' + port);
+
 });
