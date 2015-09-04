@@ -24,12 +24,16 @@ app.get('/signup', function(req,res) {
    res.sendFile(path.join(views, 'signup.html'))
 });
 
-app.post('/signup', function(req,res) {
-    //post and create logic
-});
-
 app.get('/profile', function(req,res) {
    //sendFile profile.html
+});
+
+app.get('/users', function(req,res) {
+   //send a file that takes users and prints them out
+});
+
+app.post('/users', function(req,res) {
+    //post and create logic
 });
 
 app.listen(port, function() {
