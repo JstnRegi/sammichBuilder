@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
 
 
@@ -8,9 +8,15 @@ var sammichSchema = new Schema ({
     craftsman: String,
     description: String,
     sammichType: String,
-    temp: String,
-    created: Date,
-    comments: [Comment]
+    stats: {
+        sour: Number,
+        sweet: Number,
+        spicy: Number,
+        saltiness: Number,
+        savory: Number
+    },
+    vegetarian: Boolean,
+    comments: [/*logic to dynamically get comments here*/]
 });
 
 var Comment = {
