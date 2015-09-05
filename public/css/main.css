@@ -1,5 +1,65 @@
 #title-splash {
-    height: 300px
+    height: 300px;
+    /*background: url(http://thumb7.shutterstock.com/display_pic_with_logo/1639805/234589309/stock-photo-chicken-and-spinach-sandwiches-wrapped-in-craft-paper-over-a-white-wooden-background-with-a-copy-234589309.jpg) center fixed;*/
+    /*background-color: rgba(0, 0, 0, 0.6);*/
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+#title {
+    height: 300px;
+}
+
+#sammich {
+    font-size: 70px;
+    position: relative;
+    text-align: center;
+    margin-bottom: -10px;
+    top: 30px;
+}
+
+#builder {
+    font-size: 140px;
+    text-align: center;
+    position: relative;
+}
+
+#body-container {
+    margin-top: 70px;
+}
+
+#left-top {
+    height: 420px;
+}
+
+#craftsmen-name {
+    margin-bottom: 60px;
+    margin-left: -15px;
+}
+
+#vacant-title {
+    margin-bottom: 60px;
+}
+
+#profile-area {
+    height: 250px;
+}
+
+#vacant-content {
+    height: 250px;
+}
+
+#build-container {
+    height: 800px;
+}
+
+#building-nav {
+    margin-left: -15px;
+    height: 800px;
+}
+
+#ingredients {
+
 }
 
 #sign-login {
@@ -10,8 +70,12 @@
     margin-bottom: 5px;
 }
 
-.black-background {
-    background-color: #181818;
+.layout {
+    background-color: rgba(0, 0, 0, 0.51);
+}
+
+.building-layout {
+    background-color: rgba(255, 255, 255, 0.76);
 }
 
 .row.black-background {
