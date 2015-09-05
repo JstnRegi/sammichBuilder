@@ -17,12 +17,12 @@ var UserSchema = new Schema ({
     }
 });
 
-UserShema.statics.createSecure = function(email, password, cb) {
+UserSchema.statics.createSecure = function(email, password, cb) {
   // _this references our schema. Not to be confused with the primitive value 'this' later on during the function
     var _this = this;
     bcrypt.genSalt(function (err, salt) {
        //hash the password with salt
-        bcyrpt.hash(password, salt, function (err, hash) {
+        bcrypt.hash(password, salt, function (err, hash) {
             //builds the user
             var user = {
                 email: email,
@@ -35,7 +35,7 @@ UserShema.statics.createSecure = function(email, password, cb) {
     });
 };
 
-UserShema.statics.authenticate = function(email, password, cb) {
+UserSchema.statics.authenticate = function(email, password, cb) {
     this.findOne({email: email}, function(err, user) {
         if(user === null) {
             cb('Can\'t find user with that email', null);

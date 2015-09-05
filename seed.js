@@ -18,6 +18,11 @@ var testSammich = {
     comments: ['test']
 };
 
+var testUser = {
+    email: 'test@123.com',
+    password: 'secret'
+};
+
 //db.Sammich.remove({}, function(err, sammiches) {
 //    if(err) {
 //        return console.log(err);
@@ -32,3 +37,27 @@ var testSammich = {
 //        console.log(sammiches);
 //    });
 //});
+
+//var email = testUser.email;
+//var password = testUser.password;
+//
+//db.User.createSecure(email, password, function(err, user) {
+//    if(err) {
+//        return console.log(err);
+//    }
+//    console.log(user);
+//});
+
+db.Sammich.find({}, function(err, sammiches) {
+   if(err) {
+       return console.log(err);
+   }
+    console.log(sammiches);
+});
+
+db.User.find({}, function(err, users) {
+   if(err) {
+       return console.log(err);
+   }
+    console.log(users);
+});
