@@ -19,7 +19,8 @@ var testSammich = {
 };
 
 var testUser = {
-    email: 'test@123.com',
+    username: 'sammichSage',
+    email: 'test@123',
     password: 'secret'
 };
 
@@ -38,7 +39,7 @@ var testUser = {
 //    });
 //});
 
-//var email = testUser.email;
+//var username = testUser.username;
 //var password = testUser.password;
 //
 //db.User.createSecure(email, password, function(err, user) {
