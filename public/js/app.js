@@ -8,6 +8,7 @@ $(function() {
 
     loginRegisterModal();
     passwordLength();
+    preventSubmitDefaults()
 });
 
 
@@ -29,10 +30,31 @@ function loginRegisterModal() {
 }
 
 function passwordLength() {
-    var length = 10;
-    $('#pass-length').append(length);
-    $('#password-signup').on('keypress', function() {
-        length--;
-        $('#pass-length').empty().append(length);
-    });
+    var minimumLength = 7;
+    var formLength = 0;
+    var backSpaceKey = 8;
+    $('#pass-length').append(0);
+    $('#password-signup').on('keydown', function(e) {
+        if(e.which === backSpaceKey) {
+            formLength--;
+            if(formLength < minimumLength) {
+                $('#pass-length').empty().css('color', 'red').append(formLength);
+            } else if (formLength >= minimumLength) {
+                $('#pass-length').empty().css('color', 'green').append(formLength);
+            }
+        } else {
+            formLength++;
+            if(formLength < minimumLength) {
+                $('#pass-length').empty().css('color', 'red').append(formLength);
+            } else if (formLength >= minimumLength) {
+                $('#pass-length').empty().css('color', 'green').append(formLength);
+            }
+        }
+    })
+}
+
+function preventSubmitDefaults() {
+    $('#register-form').submit(function(e) {
+        e.preventDefault();
+    })
 }

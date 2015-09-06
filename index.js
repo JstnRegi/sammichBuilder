@@ -87,7 +87,8 @@ app.get('/users', function(req,res) {
 });
 
 app.post('/users', function(req,res) {
-    //post and create logic
+    var user = req.user;
+    console.log(user);
 });
 
 app.listen(port, function() {
