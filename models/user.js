@@ -7,8 +7,8 @@ var UserSchema = new Schema ({
        type: String,
        required: true
    },
-    password: {
-      type:String,
+    email: {
+      type: String,
         required: true
     },
     passwordDigest: {
@@ -53,7 +53,7 @@ UserSchema.statics.authenticate = function(email, password, cb) {
 };
 
 UserSchema.methods.checkPassword = function(password) {
-    return bcrypt.compareSynce(password, this.passwordDigest);
+    return bcrypt.compareSync(password, this.passwordDigest);
 };
 
 var User = mongoose.model('User', UserSchema);

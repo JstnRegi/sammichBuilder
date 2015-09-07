@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use( session( {
     secret: 'pesto-aioli',
     resave: false,
+    cookie: {httpOnly: false},
     saveUninitialized: true
     })
 );
@@ -39,7 +40,7 @@ app.use(function (req, res, next) {
             })
     };
 
-    req.logout - function() {
+    req.logout = function() {
         req.session.userId = null;
         req.user = null;
     };
@@ -48,11 +49,16 @@ app.use(function (req, res, next) {
 
 
 //Routes
-
-app.get('/', function(req,res) {
+app.get(['/', '/login'], function(req,res) {
     //console.log(req.headers.cookie.split(' '));
     //res.cookie('test2', 123, {signed: true});
-    res.sendFile(path.join(views, 'index.html'));
+    req.currentUser(function(err,user) {
+        if (user === null) {
+            res.sendFile(path.join(views, 'signup.html'));
+        } else {
+            res.redirect('/home')
+        }
+    });
 });
 
 app.post('/login', function(req, res) {
@@ -61,25 +67,31 @@ app.post('/login', function(req, res) {
     var password = user.password;
     db.User.authenticate(email, password, function(err, user) {
         if(err) {
-            res.send(400)
+            res.redirect('/login');
         } else {
             req.login(user);
-            res.sendFile(path.join(views, 'index.html'));
+            res.redirect('/home');
         }
-    })
+    });
 });
 
 app.get('/logout', function(req, res) {
-   req.logout();
-    res.sendFile('You have logged out')
+     req.logout();
+    res.redirect('/')
 });
 
 app.get('/signup', function(req,res) {
    res.sendFile(path.join(views, 'signup.html'))
 });
 
-app.get('/profile', function(req,res) {
-   //sendFile profile.html
+app.get('/home', function(req,res) {
+    req.currentUser(function (err, user) {
+        if(user === null) {
+            res.redirect('/login');
+        } else {
+            res.sendFile(path.join(views, 'index.html'));
+        }
+    })
 });
 
 app.get('/users', function(req,res) {
@@ -92,9 +104,13 @@ app.post('/users', function(req,res) {
     var email = user.email;
     var password = user.password;
 
+    db.User.createSecure(username, email, password, function(err, user) {
+       console.log(user);
+    });
     res.send(email + ' Thanks for signing up');
 });
-//sda
+
+
 app.listen(port, function() {
    console.log('Listening on port ' + port);
 

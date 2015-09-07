@@ -49,12 +49,12 @@ var testUser = {
 //    console.log(user);
 //});
 
-db.Sammich.find({}, function(err, sammiches) {
-   if(err) {
-       return console.log(err);
-   }
-    console.log(sammiches);
-});
+//db.Sammich.find({}, function(err, sammiches) {
+//   if(err) {
+//       return console.log(err);
+//   }
+//    console.log(sammiches);
+//});
 
 db.User.find({}, function(err, users) {
    if(err) {
