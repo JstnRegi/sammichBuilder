@@ -7,6 +7,26 @@ var session = require('express-session');
 var db = require('./models');
 var views = path.join(process.cwd(), 'views/');
 
+
+
+var testSammich = {
+    name: 'The Fitz',
+    craftsman: 'sammichSage',
+    description: 'It tastes awesome',
+    sammichType: 'Traditional',
+    stats: {
+        sour: 1,
+        sweet: 2,
+        spicy: 3,
+        saltiness: 4,
+        savory: 5
+    },
+    vegetarian: false,
+    comments: ['test']
+};
+
+
+
 //port
 var port = 3000;
 
@@ -92,6 +112,22 @@ app.get('/home', function(req,res) {
             res.sendFile(path.join(views, 'index.html'));
         }
     })
+});
+
+
+app.get('/user', function(req, res) {
+    req.currentUser(function(err,user) {
+        if (user === null) {
+            res.sendFile(path.join(views, 'signup.html'));
+        } else {
+            console.log('FOUND');
+            var data = {
+                username: user.username
+            };
+            res.send(data);
+        }
+    });
+
 });
 
 app.get('/users', function(req,res) {

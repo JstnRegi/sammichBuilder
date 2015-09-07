@@ -62,3 +62,11 @@ db.User.find({}, function(err, users) {
    }
     console.log(users);
 });
+
+//db.User.remove({}, function(err, users) {
+//   if(err) {
+//       return console.log(err);
+//   }
+//    console.log(users);
+//
+//});
