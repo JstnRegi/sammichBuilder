@@ -3,21 +3,26 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 
 var UserSchema = new Schema ({
-   email: {
+   username: {
        type: String,
        required: true
    },
+    email: {
+      type: String,
+        required: true
+    },
     passwordDigest: {
         type: String,
         required: true
     },
-    cratedAt: {
+    createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    sammichBuilds: []
 });
 
-UserSchema.statics.createSecure = function(email, password, cb) {
+UserSchema.statics.createSecure = function(username, email, password, cb) {
   // _this references our schema. Not to be confused with the primitive value 'this' later on during the function
     var _this = this;
     bcrypt.genSalt(function (err, salt) {
@@ -25,6 +30,7 @@ UserSchema.statics.createSecure = function(email, password, cb) {
         bcrypt.hash(password, salt, function (err, hash) {
             //builds the user
             var user = {
+                username: username,
                 email: email,
                 passwordDigest: hash,
                 createdAt: Date.now()
@@ -48,7 +54,7 @@ UserSchema.statics.authenticate = function(email, password, cb) {
 };
 
 UserSchema.methods.checkPassword = function(password) {
-    return bcrypt.compareSynce(password, this.passwordDigest);
+    return bcrypt.compareSync(password, this.passwordDigest);
 };
 
 var User = mongoose.model('User', UserSchema);

@@ -1,13 +1,21 @@
 #title-splash {
     height: 300px;
-    /*background: url(http://thumb7.shutterstock.com/display_pic_with_logo/1639805/234589309/stock-photo-chicken-and-spinach-sandwiches-wrapped-in-craft-paper-over-a-white-wooden-background-with-a-copy-234589309.jpg) center fixed;*/
-    /*background-color: rgba(0, 0, 0, 0.6);*/
     width: 100%;
-    border-bottom: 1px solid black;
+    background: url("/static/images/sandwich-cover.jpg") no-repeat center center fixed;
+    background-position-y: -450px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
 }
 
 #title {
     height: 300px;
+    color: white;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+
 }
 
 #sammich {
@@ -25,10 +33,11 @@
 }
 
 #body-container {
-    margin-top: 70px;
+    padding-top: 70px;
+    background-color: #E4E4E4;
 }
 
-#left-top {
+#profile-area {
     height: 420px;
 }
 
@@ -41,7 +50,7 @@
     margin-bottom: 60px;
 }
 
-#profile-area {
+#profile-content {
     height: 250px;
 }
 
@@ -71,7 +80,10 @@
 }
 
 .layout {
-    background-color: rgba(0, 0, 0, 0.51);
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #F0FB96;
+    border: 1px solid #F0FB96;
+    border-radius: 2px;
 }
 
 .building-layout {

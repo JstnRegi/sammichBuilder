@@ -19,7 +19,8 @@ var testSammich = {
 };
 
 var testUser = {
-    email: 'test@123.com',
+    username: 'sammichSage',
+    email: 'test@123',
     password: 'secret'
 };
 
@@ -38,7 +39,7 @@ var testUser = {
 //    });
 //});
 
-//var email = testUser.email;
+//var username = testUser.username;
 //var password = testUser.password;
 //
 //db.User.createSecure(email, password, function(err, user) {
@@ -48,12 +49,12 @@ var testUser = {
 //    console.log(user);
 //});
 
-db.Sammich.find({}, function(err, sammiches) {
-   if(err) {
-       return console.log(err);
-   }
-    console.log(sammiches);
-});
+//db.Sammich.find({}, function(err, sammiches) {
+//   if(err) {
+//       return console.log(err);
+//   }
+//    console.log(sammiches);
+//});
 
 db.User.find({}, function(err, users) {
    if(err) {
@@ -61,3 +62,11 @@ db.User.find({}, function(err, users) {
    }
     console.log(users);
 });
+
+//db.User.remove({}, function(err, users) {
+//   if(err) {
+//       return console.log(err);
+//   }
+//    console.log(users);
+//
+//});

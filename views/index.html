@@ -7,19 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- jQuery -->
     <script src="/vendor/jquery/dist/jquery.min.js"></script>
-    <!-- Underscore -->
-    <script src="/vendor/underscore/underscore-min.js"></script>
     <!-- Bootstrap JS -->
     <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
-    <!-- ToEat.ly -->
+    <!-- Underscore -->
+    <script src="/vendor/underscore/underscore-min.js"></script>
+    <!--Stylesheets-->
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/modal.css">
+
+    <!--Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+    <!--JS-->
     <script src="/static/js/app.js"></script>
 </head>
 <body>
-<div id="title-splash" class="container">
-    <div class="col-sm-12">
+
+
+
+
+<div id="login-check">
+    <div id="title-splash" class="container">
+        <div class="col-sm-12">
             <div class="col-sm-6">
                 <div id="title">
                     <p id="sammich">
@@ -32,91 +43,60 @@
                 <!--<div id="sign-login" class="col-sm-12 container">-->
                 <!--<div class="row  black-background">-->
                 <!--<div class="col-sm-6 roomy">-->
-                <!--<form class="form-inline" id="log-in">-->
-                <!--<input type="email" name="email" placeholder="email">-->
-                <!--<input type="password" name="password" placeholder="password">-->
-                <!--<button type="submit">Log In</button>-->
-                <!--</form>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-            </div>
-    </div>
-</div>
 
-<div  id="body-container" class="container col-sm-12">
-    <div id="left-top" class="col-sm-8" >
-        <div class="col-sm-12">
-            <div id="craftsmen-name" class="col-sm-6  layout">
-                Craftsmen Name
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
             </div>
         </div>
-        <br>
-        <br>
-        <div id="profile-area"class="col-sm-12 layout">
-            Profile Area
-        </div>
     </div>
-    <div id="vacant" class="col-sm-4">
-        <div id="vacant-title" class="col-sm-12 layout">
-            Title
-        </div><br><br>
-        <div id="vacant-content" class="col-sm-12 layout">
-            Content
-        </div>
-    </div>
-    <br><br>
 
-    <!--temporary-->
-    <br><br><br><br>
-    <div id="build-container" class="container col-sm-12 layout">
-        <div id="building-nav" class="col-sm-2 building-layout">
-            <div id="ingredients" class="col-sm-12">
-                Things
+    <div id="body-container" class="container col-sm-12">
+        <div id="profile-area" class="col-sm-8" >
+
+        </div>
+        <div id="vacant" class="col-sm-4">
+            <div id="vacant-title" class="col-sm-12 layout">
+                Title
+            </div><br><br>
+            <div id="vacant-content" class="col-sm-12 layout">
+                Content
             </div>
         </div>
-        <div class="col-sm-10" id="right">
-            <div class="col-sm-6">
-                Things
+        <br><br>
+
+        <!--temporary-->
+        <br><br><br><br>
+        <div id="build-container" class="container col-sm-12 layout">
+            <div id="building-nav" class="col-sm-2 building-layout">
+                <div id="ingredients" class="col-sm-12">
+                    Things
+                </div>
             </div>
-            <div class="col-sm-6">
-                Other things
+            <div class="col-sm-10" id="right">
+                <div class="col-sm-6">
+                    Things
+                </div>
+                <div class="col-sm-6">
+                    Other things
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">-->
-<!--Launch demo modal-->
-<!--</button>-->
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+<script type="text/template" id="profile-area-template">
+    <div class="col-sm-12">
+        <div id="craftsmen-name" class="col-sm-6  layout">
+            <%= username %>
         </div>
     </div>
-</div>
+    <br>
+    <br>
+    <div id="profile-content" class="col-sm-12 layout">
+        Profile Area
+    </div>
+</script>
 
 </body>
 </html>
