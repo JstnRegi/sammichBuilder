@@ -24,6 +24,10 @@ html, body, #login-register {
     font-size: small;
 }
 
+#submit-container {
+    height: 75px;
+}
+
 .vertical-center-row {
     display: table-cell;
     vertical-align: middle;

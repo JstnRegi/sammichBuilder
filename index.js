@@ -87,10 +87,14 @@ app.get('/users', function(req,res) {
 });
 
 app.post('/users', function(req,res) {
-    var user = req.user;
-    console.log(user);
-});
+    var user = req.body.user;
+    var username = user.username;
+    var email = user.email;
+    var password = user.password;
 
+    res.send(email + ' Thanks for signing up');
+});
+//sda
 app.listen(port, function() {
    console.log('Listening on port ' + port);
 

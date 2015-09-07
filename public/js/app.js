@@ -1,3 +1,9 @@
+var minimumLength = 7;
+var formLength = 0;
+var backSpaceKey = 8;
+var email;
+var password;
+
 $(function() {
 
     $('#login-check').on('click', function() {
@@ -8,7 +14,8 @@ $(function() {
 
     loginRegisterModal();
     passwordLength();
-    preventSubmitDefaults()
+    //register();
+    showRegister();
 });
 
 
@@ -30,31 +37,46 @@ function loginRegisterModal() {
 }
 
 function passwordLength() {
-    var minimumLength = 7;
-    var formLength = 0;
-    var backSpaceKey = 8;
     $('#pass-length').append(0);
     $('#password-signup').on('keydown', function(e) {
-        if(e.which === backSpaceKey) {
+        formLength = $(this).val().length;
+        if(e.which === backSpaceKey && (formLength > 0)) {
             formLength--;
-            if(formLength < minimumLength) {
-                $('#pass-length').empty().css('color', 'red').append(formLength);
-            } else if (formLength >= minimumLength) {
-                $('#pass-length').empty().css('color', 'green').append(formLength);
-            }
-        } else {
-            formLength++;
-            if(formLength < minimumLength) {
-                $('#pass-length').empty().css('color', 'red').append(formLength);
-            } else if (formLength >= minimumLength) {
-                $('#pass-length').empty().css('color', 'green').append(formLength);
-            }
         }
+        if((91 > e.which) && (e.which > 47)) {
+            formLength++;
+        }
+        if(formLength < minimumLength) {
+            $('#pass-length').css('color', 'red');
+            $('#register-submit').hide('slow');
+        } else if (formLength >= minimumLength) {
+            $('#pass-length').css('color', 'green');
+        }
+        $('#pass-length').empty().append(formLength);
     })
 }
 
-function preventSubmitDefaults() {
+function showRegister() {
+    $('#username').change(function() {
+        username = $(this).val();
+    });
+    $('#email').change(function() {
+       email = $(this).val();
+    });
+    $('#password-signup').on('keydown', function() {
+        password = $(this).val();
+        if (password && email && username && (formLength >= minimumLength)) {
+            $('#register-submit').show('slow');
+        }
+    });
+}
+
+function register() {
     $('#register-form').submit(function(e) {
         e.preventDefault();
+        var data = $(this).serialize();
+        $.post('/users', data, function(response) {
+            console.log(response);
+        });
     })
 }
