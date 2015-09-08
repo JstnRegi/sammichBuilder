@@ -59,6 +59,7 @@ function renderBuild(data) {
 
     var detailsHtml = detailsTemplate(data);
 
+    $('#vacant-content').empty();
     $('#vacant-content').append(detailsHtml);
 
 }

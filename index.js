@@ -10,18 +10,19 @@ var views = path.join(process.cwd(), 'views/');
 
 
 var testSammich = {
-    name: 'French Dip',
+    name: 'BLT',
     craftsman: 'sammichSage',
     description: 'It tastes awesome',
     sammichType: 'Traditional',
     stats: {
-        sour: 1,
-        sweet: 2,
-        spicy: 3,
-        saltiness: 4,
-        savory: 5
+        sour: 2,
+        sweet: 4,
+        spicy: 1,
+        saltiness: 11,
+        savory: 20
     },
     vegetarian: false,
+    ingredients: ['salami', 'chicken', 'lettuce', 'cheese'],
     comments: ['test']
 };
 
@@ -121,6 +122,13 @@ app.get('/user', function(req, res) {
             res.sendFile(path.join(views, 'signup.html'));
         } else {
             console.log('FOUND');
+            //db.Sammich.create(testSammich, function(err, sammich) {
+            //   if(err) {return console.log(err)}
+            //    user.sammichBuilds.push(sammich);
+            //    user.save(function(err, success) {
+            //        console.log(user.sammichBuilds);
+            //    })
+            //});
             var data = {
                 username: user.username,
                 sammichBuilds: user.sammichBuilds

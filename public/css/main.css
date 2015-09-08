@@ -77,6 +77,7 @@
     width: 100%;
     padding-left: 0px;
     padding-right: 0px;
+    overflow-y: auto;
 }
 
 #build-container {
@@ -114,15 +115,47 @@ dl.dl-horizontal a dt {
     font-size: 30px;
 }
 
-#dt-details {
-    width: 40%;
-    margin-left: auto;
+#details-container {
+    height: inherit + 20px;
+    width: inherit;
+    margin-left: 50px;
     margin-right: auto;
+    overflow-y: inherit;
+}
+
+#sandwich-picture {
+    height: 175px;
+    margin: 30px auto 20px;
+    width: 175px;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#dt-details {
+    margin: 10px auto;
 }
 
 #dd-details {
-    width: 60%;
     margin-left: auto;
+    margin-bottom: 10px;
+}
+
+#build-details {
+    overflow-y: scroll;
+    padding-left: 0;
+    padding-right: 0;
+    /*width: 100%*/
+}
+
+#details-list {
+    width: 100%;
+}
+
+#build-container {
+    float: none;
+    margin: 0 auto;
+    height: 600px;
+
 }
 
 .bold {
@@ -131,7 +164,18 @@ dl.dl-horizontal a dt {
 
 .roomy {
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.sideroomy {
+    padding-left: 0;
+    padding-right: 0;
+    /*margin-left: 5px;*/
+    /*margin-right: 5px;*/
+}
+
+.stats {
+    width: 30%;
 }
 
 .layout {

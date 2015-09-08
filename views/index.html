@@ -55,38 +55,43 @@
         </div>
     </div>
 
-    <div id="body-container" class="container col-sm-12">
+    <div id="body-container" class="container col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
         <div id="profile-area" class="col-sm-8" >
-            <div class="col-sm-12">
-                <div id="craftsmen-name" class="col-sm-6 title-color">
-                </div>
-            </div>
-            <br>
-            <br>
-            <div id="profile-content" class="col-sm-12 layout">
-                <div class="col-sm-4">
-                    <div id="profile-icon">
-                        Icon
+                <div class="col-sm-12">
+                    <div id="craftsmen-name" class="col-sm-6 title-color">
                     </div>
                 </div>
-                <div id="sammich-builds" class="col-sm-8">
-                    <div id="builds-title" class="text-center col-sm-12"> Sandwich Builds </div><br>
-                    <div id="build-note" class="col-sm-12 text-center">Click on a title to view more details</div>
-                    <dl id="build-list" class="dl-horizontal">
+                <br>
+                <br>
+                <div id="profile-content" class="col-sm-12 layout">
+                    <div class="col-sm-4">
+                        <div id="profile-icon">
+                            Icon
+                        </div>
+                    </div>
+                    <div id="sammich-builds" class="col-sm-8">
+                        <div id="builds-title" class="text-center col-sm-12"> Sandwich Builds </div><br>
+                        <div id="build-note" class="col-sm-12 text-center">Click on a title to view more details</div>
+                        <dl id="build-list" class="dl-horizontal">
 
-                    </dl>
+                        </dl>
+                    </div>
                 </div>
-            </div>
 
-        </div>
-        <div id="vacant" class="col-sm-4">
-            <div class="col-sm-12">
-                <div  id="vacant-title" class="title-color">
-                </div>
             </div>
-            <br>
-            <br>
-            <div id="vacant-content" class="col-sm-12 layout">
+            <div id="vacant" class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div  id="vacant-title" class="title-color">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div id="vacant-content" class="col-sm-12 layout">
+
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -112,38 +117,76 @@
     </div>
 </div>
 
+
+
+
 <script type="text/template" id="build-template">
     <a id="<%= name %>"><dt><%= name %></dt></a>
     <dd><%= description %></dd>
 </script>
 
 <script type="text/template" id="details-template">
-        <div class="dl-horizontal">
+    <div id="details-container">
+        <div id="sandwich-picture" class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
+        </div>
+        <div id="build-details" class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
+            <div id="details-list" class="dl">
 
-            <dt id="dt-details">Sandwich type:</dt>
-            <dd id="dd-details" class="text-center"><%= sammichType %></dd>
+                <dt id="dt-details" class="text-center">Sandwich type:</dt>
+                <dd id="dd-details" class="text-center"><%= sammichType %></dd>
 
-            <dt id="dt-details">Stats:</dt>
-            <dd id="dd-details">
-                <div class="col-sm-6 text-right">
-                    Spicy: <%= stats.spicy %><br>
-                    Savory: <%= stats.savory %>
-                </div>
-                <div class="col-sm-6 text-left">
-                    Sour: <%= stats.sour %><br>
-                    Sweet: <%= stats.sweet %>
-                </div>
-                <div class="col-sm-12 text-center">
-                    Saltiness: <%= stats.saltiness %>
-                </div>
-            </dd>
+                <dt id="dt-details" class="text-center">Stats:</dt>
+                <dd id="dd-details">
+                    <div class="col-sm-12 sideroomy">
+                        <div class="col-sm-12 sideroomy">
+                            <div class="col-xs-4 col-sm-4 col-md-4 text-center ">
+                                Spicy <br> <%= stats.spicy %>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 text-center sideroomy">
+                                Saltiness <br> <%= stats.saltiness %>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 text-center ">
+                                Sweet <br> <%= stats.sweet %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 sideroomy roomy">
+                        <div class="col-sm-12">
+                            <div class="col-sm-6 text-center sideroomy">
+                                Sour <br> <%= stats.sour %>
+                            </div>
+                            <div class="col-sm-6 text-center sideroomy">
+                                Savory <br> <%= stats.savory %>
+                            </div>
+                        </div>
+                    </div>
+                </dd>
+
+                <dt id="dt-details" class="text-center">
+                    Ingredients
+                </dt>
+                <dd>
+                    <ul class="list-unstyled">
+                        <% _.each(ingredients, function(ingredient)
+                        { %>
+                        <li class="text-center">&#8226; <%= ingredient %></li>
+                        <% }); %>
+                    </ul>
+                </dd>
+            </div>
 
         </div>
 
-    <br>
-        <div class="col-sm-12 text-center bold">
-            comments area
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div id="comment-header" class="text-center bold">
+            Comments
         </div>
+        <%= comments %>
+    </div>
+
+
+
 </script>
 
 
