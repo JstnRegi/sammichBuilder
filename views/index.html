@@ -56,9 +56,13 @@
 
         </div>
         <div id="vacant" class="col-sm-4">
-            <div id="vacant-title" class="col-sm-12 layout">
-                Title
-            </div><br><br>
+            <div class="col-sm-12">
+                <div  id="vacant-title">
+                    Title
+                </div>
+            </div>
+            <br>
+            <br>
             <div id="vacant-content" class="col-sm-12 layout">
                 Content
             </div>
@@ -87,14 +91,28 @@
 
 <script type="text/template" id="profile-area-template">
     <div class="col-sm-12">
-        <div id="craftsmen-name" class="col-sm-6  layout">
+        <div id="craftsmen-name" class="col-sm-6">
             <%= username %>
         </div>
     </div>
     <br>
     <br>
     <div id="profile-content" class="col-sm-12 layout">
-        Profile Area
+        <div class="col-sm-4">
+            <div id="profile-icon">
+                Icon
+            </div>
+        </div>
+        <div id="sammich-builds" class="col-sm-8">
+            <div id="builds-title" class="text-center"> Sammich Builds </div>
+            <dl class="dl-horizontal">
+                <% _.each(sammichBuilds, function(build)
+                { %>
+                <dt><%= build.name %></dt>
+                <dd><%= build.description%></dd>
+                <% }); %>
+            </dl>
+        </div>
     </div>
 </script>
 
