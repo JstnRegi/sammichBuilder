@@ -1,27 +1,65 @@
 $(function () {
 
-    //create template for profile area
-    var profileTemplate = _.template($('#profile-area-template').html());
+
+    var buildTemplate = _.template($('#build-template').html());
 
     //ajax call to get current user info
     $.get('/user', function(data) {
-        console.log(data);
-        var profileData = data;
-        var profileHtml = profileTemplate(profileData);
+        var username = data.username;
 
-        $('#profile-area').append(profileHtml);
-    })
+        $('#craftsmen-name').append(username);
+
+        var sammichData = data.sammichBuilds;
+        sammichData.forEach(function(e) {
+
+            var sammichInfo = {
+                name: e.name,
+                description: e.description
+            };
+
+            //$('#build-list').prepend('' +
+            //'<a id="' + e.name + '"' + '><dt>' +  e.name  + '</dt></a>' +
+            //'<dd>' +  e.description + '</dd>');
+
+            var sammichHtml = buildTemplate(sammichInfo);
+
+            $('#build-list').append(sammichHtml);
+        });
+
+        buildDetails();
+
+    });
+
+//buildDetails();
+
+
 });
 
-var $booksCon = $("#booksCon");
-var bookHTML = $("#bookTemp").html();
-var bookTemp = _.template(bookHTML);
+function buildDetails() {
+    var sammich;
+    $('#build-list a').click(function() {
+        sammich = $(this).attr('id');
 
-$.get("/books").
-    done(function(data) {
-        console.log(data);
-        $(data).each(function (index, book) {
-            var $book = $(bookTemp(book));
-            $booksCon.append($book);
+        $.get('/sammiches', {name: sammich}, function(data) {
+            var name = data.name || data;
+            $('#vacant-title').empty();
+            $('<div >' + name + '</div>').hide().appendTo("#vacant-title").fadeIn('fast');
+            //$('#vacant-title').fadeIn('slow', function() {
+            //    $('#vacant-title').append(data.name || data);
+            //});
+            console.log(data);
+            renderBuild(data);
         });
+        console.log(sammich);
     });
+}
+
+function renderBuild(data) {
+    var detailsTemplate = _.template($('#details-template').html());
+
+    var detailsHtml = detailsTemplate(data);
+
+    $('#vacant-content').append(detailsHtml);
+
+}
+
