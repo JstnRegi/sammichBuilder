@@ -74,6 +74,9 @@
 
 #vacant-content {
     height: 250px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #build-container {
@@ -109,6 +112,21 @@ dl.dl-horizontal a dt {
 
 #builds-title {
     font-size: 30px;
+}
+
+#dt-details {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#dd-details {
+    width: 60%;
+    margin-left: auto;
+}
+
+.bold {
+    font-weight: 700;
 }
 
 .roomy {
