@@ -18,7 +18,8 @@
     <link rel="stylesheet" type="text/css" href="/static/css/modal.css">
 
     <!--Fonts-->
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
 
     <!--JS-->
     <script src="/static/js/app.js"></script>
@@ -31,10 +32,10 @@
 <div id="login-check">
     <div id="title-splash" class="container">
         <div class="col-sm-12">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div id="title">
                     <p id="sammich">
-                        Sammich
+                        Sandwich
                     </p>
                     <p id="builder">
                         Builder
@@ -48,23 +49,45 @@
                 <!--</div>-->
                 <!--</div>-->
             </div>
+            <!--<div class="col-sm-3">-->
+                <!-- -->
+            <!--</div>-->
         </div>
     </div>
 
     <div id="body-container" class="container col-sm-12">
         <div id="profile-area" class="col-sm-8" >
+            <div class="col-sm-12">
+                <div id="craftsmen-name" class="col-sm-6 title-color">
+                </div>
+            </div>
+            <br>
+            <br>
+            <div id="profile-content" class="col-sm-12 layout">
+                <div class="col-sm-4">
+                    <div id="profile-icon">
+                        Icon
+                    </div>
+                </div>
+                <div id="sammich-builds" class="col-sm-8">
+                    <div id="builds-title" class="text-center col-sm-12"> Sandwich Builds </div><br>
+                    <div id="build-note" class="col-sm-12 text-center">Click on a title to view more details</div>
+                    <dl id="build-list" class="dl-horizontal">
+
+                    </dl>
+                </div>
+            </div>
 
         </div>
         <div id="vacant" class="col-sm-4">
             <div class="col-sm-12">
-                <div  id="vacant-title">
-                    Title
+                <div  id="vacant-title" class="title-color">
                 </div>
             </div>
             <br>
             <br>
             <div id="vacant-content" class="col-sm-12 layout">
-                Content
+
             </div>
         </div>
         <br><br>
@@ -89,30 +112,41 @@
     </div>
 </div>
 
-<script type="text/template" id="profile-area-template">
+<script type="text/template" id="build-template">
+    <a id="<%= name %>"><dt><%= name %></dt></a>
+    <dd><%= description %></dd>
+</script>
+
+<script type="text/template" id="details-template">
     <div class="col-sm-12">
-        <div id="craftsmen-name" class="col-sm-6">
-            <%= username %>
+        <div class="col-sm-12">
+            Sandwich type: <%= sammichType %>
+        </div>
+        <br>
+        <br>
+        <div id="sammich-stats" class="col-sm-12 text-center">
+            Stats
+        </div><br>
+        <div class="col-sm-12">
+            <div class="col-sm-6 text-right">
+                Spicy: <%= stats.spicy %><br>
+                Savory: <%= stats.savory %>
+            </div>
+            <div class="col-sm-6 text-left">
+                Sour: <%= stats.sour %><br>
+                Sweet: <%= stats.sweet %>
+            </div>
+        <div class="col-sm-12 text-center">
+            Saltiness: <%= stats.saltiness %>
+        </div>
         </div>
     </div>
     <br>
     <br>
-    <div id="profile-content" class="col-sm-12 layout">
-        <div class="col-sm-4">
-            <div id="profile-icon">
-                Icon
-            </div>
-        </div>
-        <div id="sammich-builds" class="col-sm-8">
-            <div id="builds-title" class="text-center"> Sammich Builds </div>
-            <dl class="dl-horizontal">
-                <% _.each(sammichBuilds, function(build)
-                { %>
-                <dt><%= build.name %></dt>
-                <dd><%= build.description%></dd>
-                <% }); %>
-            </dl>
-        </div>
+    <br>
+    <br>
+    <div class="col-sm-12">
+        comments area
     </div>
 </script>
 

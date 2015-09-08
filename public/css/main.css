@@ -14,27 +14,30 @@
     height: 300px;
     color: white;
     -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: black;
-
+    -webkit-text-stroke-color: #168171;
 }
 
 #sammich {
-    font-size: 70px;
+    font-size: 95px;
     position: relative;
     text-align: center;
-    margin-bottom: -10px;
-    top: 30px;
+    top: 15px;
+    font-weight: 900;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 #builder {
-    font-size: 140px;
+    font-size: 155px;
     text-align: center;
     position: relative;
+    font-weight: 900;
+    margin-top: -58px;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 #body-container {
     padding-top: 70px;
-    background-color: #E4E4E4;
+    background-color: rgba(7, 24, 39, 0.95);
 }
 
 #profile-area {
@@ -43,23 +46,30 @@
 
 #craftsmen-name {
     font-family: 'Source Sans Pro', sans-serif;
-    margin-bottom: 60px;
     margin-left: 0px;
     padding-bottom: 14px;
     font-size: 40px;
     width: 100%;
+    height: 131px;
 }
 
 #vacant-title {
     font-family: 'Source Sans Pro', sans-serif;
-    margin-bottom: 88px;
     margin-left: 0px;
+    margin-top: 12px;
     font-size: 30px;
+    height: 118px;
 }
 
 #profile-content {
     height: 250px;
     overflow-y: auto;
+}
+
+#build-note {
+    font-size: 10px;
+    margin-top: -5px;
+    margin-bottom: 15px;
 }
 
 #vacant-content {
@@ -68,6 +78,11 @@
 
 #build-container {
     height: 800px;
+}
+
+dl.dl-horizontal a dt {
+    cursor: pointer;
+    cursor: hand;
 }
 
 #building-nav {
@@ -93,6 +108,7 @@
 }
 
 #builds-title {
+    font-size: 30px;
 }
 
 .roomy {
@@ -102,7 +118,7 @@
 
 .layout {
     font-family: 'Source Sans Pro', sans-serif;
-    background-color: #F0FB96;
+    background-color: #ffffff;
     border: 1px solid #F0FB96;
     border-radius: 2px;
 }
@@ -114,4 +130,8 @@
 .row.black-background {
     padding-top: 2px;
     height: 40px;
+}
+
+.title-color {
+    color: #F0FB96;
 }

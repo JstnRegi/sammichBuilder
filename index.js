@@ -125,19 +125,25 @@ app.get('/user', function(req, res) {
                 username: user.username,
                 sammichBuilds: user.sammichBuilds
             };
-            console.log(data);
             res.send(data);
         }
     });
-
 });
 
 app.get('/sammiches', function(req, res) {
-   db.Sammich.find({}, function(err, sammiches) {
-       console.log(sammiches);
-       res.send(sammiches);
-   });
+    var sammich = req.query;
+    console.log(sammich);
+   db.Sammich.findOne(sammich, function(err, sammich) {
+       if(err) {
+           return console.log(err);
+       }
+       if(sammich === null) {
+           res.send('not found')
+       } else {
+           res.send(sammich);
+       }
 
+   });
 });
 
 app.post('/sammiches' , function(req, res) {

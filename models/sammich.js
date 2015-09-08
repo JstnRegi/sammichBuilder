@@ -16,6 +16,7 @@ var sammichSchema = new Schema ({
         savory: Number
     },
     vegetarian: Boolean,
+    ingredients: [],
     comments: [/*logic to dynamically get comments here*/]
 });
 
