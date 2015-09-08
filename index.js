@@ -10,7 +10,7 @@ var views = path.join(process.cwd(), 'views/');
 
 
 var testSammich = {
-    name: 'The Fitz',
+    name: 'French Dip',
     craftsman: 'sammichSage',
     description: 'It tastes awesome',
     sammichType: 'Traditional',
@@ -122,16 +122,43 @@ app.get('/user', function(req, res) {
         } else {
             console.log('FOUND');
             var data = {
-                username: user.username
+                username: user.username,
+                sammichBuilds: user.sammichBuilds
             };
+            console.log(data);
             res.send(data);
         }
     });
 
 });
 
-app.get('/users', function(req,res) {
-   //send a file that takes users and prints them out
+app.get('/sammiches', function(req, res) {
+   db.Sammich.find({}, function(err, sammiches) {
+       console.log(sammiches);
+       res.send(sammiches);
+   });
+
+});
+
+app.post('/sammiches' , function(req, res) {
+    //logic to post to sammiches api and push it into current user sammich builds
+    req.currentUser(function(err,user) {
+        if (user === null) {
+            res.sendFile(path.join(views, 'signup.html'));
+        } else {
+            console.log('FOUND');
+            var data = {
+                username: user.username
+            };
+            user.sammichBuilds.push(testSammich);
+
+            user.save(function(err, success) {
+                if(err) {return console.log(err);}
+                console.log("Sammich Build added Successfully");
+            });
+            res.send(data);
+        }
+    });
 });
 
 app.post('/users', function(req,res) {

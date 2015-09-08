@@ -38,20 +38,28 @@
 }
 
 #profile-area {
-    height: 420px;
+    height: 530px;
 }
 
 #craftsmen-name {
+    font-family: 'Source Sans Pro', sans-serif;
     margin-bottom: 60px;
-    margin-left: -15px;
+    margin-left: 0px;
+    padding-bottom: 14px;
+    font-size: 40px;
+    width: 100%;
 }
 
 #vacant-title {
-    margin-bottom: 60px;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-bottom: 88px;
+    margin-left: 0px;
+    font-size: 30px;
 }
 
 #profile-content {
     height: 250px;
+    overflow-y: auto;
 }
 
 #vacant-content {
@@ -74,6 +82,19 @@
 #sign-login {
     height: 50px;
 }
+
+#profile-icon {
+    height: 175px;
+    margin: 30px auto 20px;
+    width: 175px;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+#builds-title {
+}
+
 .roomy {
     margin-top: 5px;
     margin-bottom: 5px;
