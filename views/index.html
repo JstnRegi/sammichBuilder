@@ -118,38 +118,47 @@
 </script>
 
 <script type="text/template" id="details-template">
-    <div class="col-sm-12">
-        <div class="col-sm-12">
-            Sandwich type: <%= sammichType %>
+        <div class="dl-horizontal">
+
+            <dt id="dt-details">Sandwich type:</dt>
+            <dd id="dd-details" class="text-center"><%= sammichType %></dd>
+
+            <dt id="dt-details">Stats:</dt>
+            <dd id="dd-details">
+                <div class="col-sm-6 text-right">
+                    Spicy: <%= stats.spicy %><br>
+                    Savory: <%= stats.savory %>
+                </div>
+                <div class="col-sm-6 text-left">
+                    Sour: <%= stats.sour %><br>
+                    Sweet: <%= stats.sweet %>
+                </div>
+                <div class="col-sm-12 text-center">
+                    Saltiness: <%= stats.saltiness %>
+                </div>
+            </dd>
+
         </div>
-        <br>
-        <br>
-        <div id="sammich-stats" class="col-sm-12 text-center">
-            Stats
-        </div><br>
-        <div class="col-sm-12">
-            <div class="col-sm-6 text-right">
-                Spicy: <%= stats.spicy %><br>
-                Savory: <%= stats.savory %>
-            </div>
-            <div class="col-sm-6 text-left">
-                Sour: <%= stats.sour %><br>
-                Sweet: <%= stats.sweet %>
-            </div>
-        <div class="col-sm-12 text-center">
-            Saltiness: <%= stats.saltiness %>
+
+    <br>
+        <div class="col-sm-12 text-center bold">
+            comments area
         </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="col-sm-12">
-        comments area
-    </div>
 </script>
 
+
+<!--<div class="col-sm-12">-->
+    <!--<dt>Sandwich type:</dt>-->
+    <!--<dd><%= sammichType %></dd>-->
+<!--</div>-->
+<!--<br>-->
+<!--<br>-->
+<!--&lt;!&ndash;<div id="sammich-stats" class="col-sm-12 text-center">&ndash;&gt;-->
+<!--&lt;!&ndash; &ndash;&gt;-->
+<!--&lt;!&ndash;</div><br>&ndash;&gt;-->
+<!--<div class="col-sm-12">-->
+    <!-- -->
+<!--</div>-->
 </body>
 </html>
 
