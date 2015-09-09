@@ -18,7 +18,6 @@
     <link rel="stylesheet" type="text/css" href="/static/css/modal.css">
     <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
 
-
     <!--Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
@@ -99,87 +98,91 @@
         </div>
 
         <div id="build-container" class="container col-sm-12 col-md-12 col-lg-12 layout">
-            <div class="col-sm-2 col-md-2 col-lg-2">
+                <div id="wrapper">
+                    <!-- Sidebar -->
+                    <div id="sidebar-wrapper">
+                        <ul class="sidebar-nav text-right">
+                            <li id="instructions" class="current-tab">
+                                <a>Instructions &nbsp; &nbsp;</a>
+                            </li>
+                            <li id="info">
+                                <a>Information &nbsp; &nbsp;</a>
+                            </li>
+                            <li id="materials">
+                                <a>Materials &nbsp; &nbsp;</a>
+                            </li>
+                            <li id="stats">
+                                <a>Stats &nbsp; &nbsp;</a>
+                            </li>
+                            <li id="picture">
+                                <a>Picture &nbsp; &nbsp;</a>
+                            </li>
+                            <li id="directions">
+                                <a>Directions &nbsp; &nbsp;</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /#sidebar-wrapper -->
 
-            </div>
-            <div id="wrapper">
-                <!-- Sidebar -->
-                <div id="sidebar-wrapper">
-                    <ul class="sidebar-nav text-right">
-                        <li id="instructions" class="current-tab">
-                            <a>Instructions &nbsp; &nbsp;</a>
-                        </li>
-                        <li id="info">
-                            <a>Information &nbsp; &nbsp;</a>
-                        </li>
-                        <li id="materials">
-                            <a>Materials &nbsp; &nbsp;</a>
-                        </li>
-                        <li id="stats">
-                            <a>Stats &nbsp; &nbsp;</a>
-                        </li>
-                        <li id="picture">
-                            <a>Picture &nbsp; &nbsp;</a>
-                        </li>
-                        <li id="directions">
-                            <a>Directions &nbsp; &nbsp;</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /#sidebar-wrapper -->
-
-                <!-- Page Content -->
-                <div id="page-content-wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div id="instructions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display: block">
-                                <h1>Instructions</h1>
-                                <p>Instructions on how to do a sandwich build.</p>
-                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Build Sandwich</a>
-                            </div>
-                            <div id="info-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <h1>Sandwich Info</h1>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                        <input type="text" placeholder="Sandwich Name e.g. 'The Ace of Clubs', 'PByouJelly?'">
+                    <!-- Page Content -->
+                    <div id="page-content-wrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div id="instructions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display: block">
+                                    <h1>Instructions</h1>
+                                    <p>Instructions on how to do a sandwich build.</p>
+                                    <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Build Sandwich</a>
+                                </div>
+                                <div id="info-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <h1 class="build-header">Sandwich Information</h1>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <form class="text-center">
+                                                <div id="sandwich-name-container">
+                                                    <h3>Sandwich Name</h3>
+                                                    <input id="sandwich-name" class="build-input form-control build-form-center build-form-roomy" type="text" placeholder='&nbsp; e.g. &nbsp;"The Ace of Clubs",  &nbsp; "PByouJelly?"'>
+                                                </div>
+                                                <h3>Sandwich Description</h3>
+                                                <textarea class="form-control build-textarea build-form-center build-form-roomy" rows="3" placeholder="Description of sandwich"></textarea>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="materials-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <h1>Sandwich Materials</h1>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                        <input type="text" placeholder="Ingredients go here">
+                                <div id="materials-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <h1>Sandwich Materials</h1>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                            <input type="text" placeholder="Ingredients go here">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="stats-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
-                                <h1>Sandwich Stats</h1>
-                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
-                            </div>
-                            <div id="picture-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
-                                <h1>Picture of Sandwich</h1>
+                                <div id="stats-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                    <h1>Sandwich Stats</h1>
+                                    <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                </div>
+                                <div id="picture-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                    <h1>Picture of Sandwich</h1>
 
-                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
-                                <input type="text">
-                            </div>
-                            <div id="directions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
-                                <h1>Directions</h1>
+                                    <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                    <input type="text">
+                                </div>
+                                <div id="directions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                    <h1>Directions</h1>
 
-                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                    <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- /#page-content-wrapper -->
                 </div>
-                <!-- /#page-content-wrapper -->
             </div>
         </div>
     </div>
-</div>
 
 
 
