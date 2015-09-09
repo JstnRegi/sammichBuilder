@@ -153,7 +153,8 @@ dl.dl-horizontal a dt {
 
 #build-container {
     float: none;
-    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
     height: 600px;
 
 }
@@ -196,4 +197,34 @@ dl.dl-horizontal a dt {
 
 .title-color {
     color: #F0FB96;
+}
+
+.build-input {
+    width: 400px;
+    height: 25px;
+    border: 1px solid #168172;
+    border-radius: 3px;
+}
+
+.build-textarea {
+    border: 1px solid #168172;
+    border-radius: 3px;
+    width: 500px;
+}
+
+.build-form-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.build-header {
+    margin-bottom: 100px;
+    height: 80px;
+    border-bottom: 1px solid #D2E35C;
+    font-size: 70px;
+}
+
+.build-form-roomy {
+    margin-bottom: 70px;
+    margin-top: 20px;
 }

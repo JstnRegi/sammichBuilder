@@ -122,13 +122,7 @@ app.get('/user', function(req, res) {
             res.sendFile(path.join(views, 'signup.html'));
         } else {
             console.log('FOUND');
-            //db.Sammich.create(testSammich, function(err, sammich) {
-            //   if(err) {return console.log(err)}
-            //    user.sammichBuilds.push(sammich);
-            //    user.save(function(err, success) {
-            //        console.log(user.sammichBuilds);
-            //    })
-            //});
+
             var data = {
                 username: user.username,
                 sammichBuilds: user.sammichBuilds
@@ -146,7 +140,7 @@ app.get('/sammiches', function(req, res) {
            return console.log(err);
        }
        if(sammich === null) {
-           res.send('not found')
+           res.send('Not Found :(')
        } else {
            res.send(sammich);
        }
@@ -160,7 +154,6 @@ app.post('/sammiches' , function(req, res) {
         if (user === null) {
             res.sendFile(path.join(views, 'signup.html'));
         } else {
-            console.log('FOUND');
             var data = {
                 username: user.username
             };

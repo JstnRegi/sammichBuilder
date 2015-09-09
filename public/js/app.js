@@ -22,17 +22,15 @@ $(function () {
             //'<dd>' +  e.description + '</dd>');
 
             var sammichHtml = buildTemplate(sammichInfo);
-
             $('#build-list').append(sammichHtml);
         });
 
         buildDetails();
-        toggleTest();
+        currentTab();
 
     });
 
 //buildDetails();
-
 
 });
 
@@ -40,71 +38,48 @@ function buildDetails() {
     var sammich;
     $('#build-list a').click(function() {
         sammich = $(this).attr('id');
-
         $.get('/sammiches', {name: sammich}, function(data) {
             var name = data.name || data;
             $('#vacant-title').empty();
             $('<div >' + name + '</div>').hide().appendTo("#vacant-title").fadeIn('fast');
-            //$('#vacant-title').fadeIn('slow', function() {
-            //    $('#vacant-title').append(data.name || data);
-            //});
-            console.log(data);
-            renderBuild(data);
+            renderBuildArea(data);
         });
-        console.log(sammich);
     });
 }
 
-function renderBuild(data) {
+function renderBuildArea(data) {
     var detailsTemplate = _.template($('#details-template').html());
-
     var detailsHtml = detailsTemplate(data);
-
     $('#vacant-content').empty();
     $('#vacant-content').append(detailsHtml);
-
 }
 
-var lastContent;
-function toggleTest() {
 
+function currentTab() {
+    var lastContent;
+    var target;
     $("#sidebar-wrapper ul li").click(function() {
-        var target = ($(this).attr('id'));
+         target = ($(this).attr('id'));
         if(lastContent) {
-            $('#' + target).animate({
-                fontSize: "30px",
-                marginTop: "10px",
-                marginBottom: "7px"
-            }, 400);
-            $('#' + lastContent).animate({
-                fontSize: "15px",
-                marginTop: "5px",
-                marginBottom: "5px"
-            }, 400);
             $('#' + lastContent + '-content').fadeOut('medium', function() {
-
-                console.log(lastContent);
                 $('#' + target + '-content').fadeIn('medium');
-                //$('#' + target).addClass('current-tab');
-
-
             });
         } else {
-            $('#' + target + '-content').fadeIn('medium');
-            $('#' + target).animate({
-                fontSize: "25px",
-                marginTop: "10px",
-                marginBottom: "5px"
-            }, 400);
-            $('#instructions').animate({
-                fontSize: "15px",
-                marginTop: "5px",
-                marginBottom: "5px"
-            }, 400);
+            $('#instructions-content').fadeOut('medium', function() {
+                $('#' + target + '-content').fadeIn('medium');
+            });
         }
+        console.log(target);
         lastContent = target;
     });
-    //$('#nav2')
+    var hoverTarget;
+    $('#sidebar-wrapper ul li').hover( function() {
+            hoverTarget = ($(this).attr('id'));
+            expandNavLi(hoverTarget);
+        }, function() {
+            restoreNavLi(hoverTarget);
+        }
+    );
 }
 
 function buildSammich() {
@@ -112,18 +87,26 @@ function buildSammich() {
     console.log('test');
 }
 
-function restore(elem) {
-        var orig = $(elem)(this, 'css');
-        $(elem).animate({
-            opacity: orig.opacity,
-            width: orig.width}, 500);
+function expandNavLi(targetId) {
+    $('#' + targetId).animate({
+        fontSize: "30px",
+        marginTop: "10px",
+        marginBottom: "7px"
+    }, {
+        duration: 200,
+        specialEasing: {
+            //width: "linear",
+            height: "easeOutBounce"
+        }});
 }
 
-//$( "#block" ).animate({
-//    width: "70%",
-//    opacity: 0.4,
-//    marginLeft: "0.6in",
-//    fontSize: "3em",
-//    borderWidth: "10px"
-//}, 1500 );
+function restoreNavLi(targetId) {
+    $('#' + targetId).animate({
+        fontSize: "15px",
+        marginTop: "5px",
+        marginBottom: "5px"
+    }, 400);
+}
+
+
 
