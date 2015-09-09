@@ -16,6 +16,8 @@
     <!--Stylesheets-->
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="/static/css/modal.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
+
 
     <!--Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900' rel='stylesheet' type='text/css'>
@@ -95,23 +97,79 @@
 
             </div>
         </div>
-        <br><br>
 
-        <!--temporary-->
-        <br><br><br><br>
-        <div id="build-container" class="container col-sm-12 layout">
-            <div id="building-nav" class="col-sm-2 building-layout">
-                <div id="ingredients" class="col-sm-12">
-                    Things
-                </div>
+        <div id="build-container" class="container col-sm-12 col-md-12 col-lg-12 layout">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
             </div>
-            <div class="col-sm-10" id="right">
-                <div class="col-sm-6">
-                    Things
+            <div id="wrapper">
+                <!-- Sidebar -->
+                <div id="sidebar-wrapper">
+                    <ul class="sidebar-nav text-right">
+                        <li id="instructions" class="current-tab">
+                            <a>Instructions &nbsp; &nbsp;</a>
+                        </li>
+                        <li id="info">
+                            <a>Information &nbsp; &nbsp;</a>
+                        </li>
+                        <li id="materials">
+                            <a>Materials &nbsp; &nbsp;</a>
+                        </li>
+                        <li id="stats">
+                            <a>Stats &nbsp; &nbsp;</a>
+                        </li>
+                        <li id="picture">
+                            <a>Picture &nbsp; &nbsp;</a>
+                        </li>
+                        <li id="directions">
+                            <a>Directions &nbsp; &nbsp;</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-sm-6">
-                    Other things
+                <!-- /#sidebar-wrapper -->
+
+                <!-- Page Content -->
+                <div id="page-content-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div id="instructions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Instructions</h1>
+                                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                <input type="text">
+                            </div>
+                            <div id="info-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Sandwich Info</h1>
+
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                            </div>
+                            <div id="materials-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Sandwich Materials</h1>
+
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                <input type="text">
+                            </div>
+                            <div id="stats-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Sandwich Stats</h1>
+
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                            </div>
+                            <div id="picture-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Picture of Sandwich</h1>
+
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                <input type="text">
+                            </div>
+                            <div id="directions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Directions</h1>
+
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- /#page-content-wrapper -->
             </div>
         </div>
     </div>
@@ -187,6 +245,13 @@
 
 
 
+</script>
+
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
 </script>
 
 
