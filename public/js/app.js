@@ -22,7 +22,6 @@ $(function () {
             //'<dd>' +  e.description + '</dd>');
 
             var sammichHtml = buildTemplate(sammichInfo);
-
             $('#build-list').append(sammichHtml);
         });
 
@@ -32,7 +31,6 @@ $(function () {
     });
 
 //buildDetails();
-
 
 });
 
@@ -56,25 +54,32 @@ function renderBuildArea(data) {
     $('#vacant-content').append(detailsHtml);
 }
 
-var lastContent;
+
 function currentTab() {
+    var lastContent;
+    var target;
     $("#sidebar-wrapper ul li").click(function() {
-        var target = ($(this).attr('id'));
+         target = ($(this).attr('id'));
         if(lastContent) {
-            expandNavLi(target);
-            restoreNavLi(lastContent);
             $('#' + lastContent + '-content').fadeOut('medium', function() {
                 $('#' + target + '-content').fadeIn('medium');
             });
         } else {
-            expandNavLi(target);
             $('#instructions-content').fadeOut('medium', function() {
                 $('#' + target + '-content').fadeIn('medium');
             });
-            restoreNavLi('instructions');
         }
+        console.log(target);
         lastContent = target;
     });
+    var hoverTarget;
+    $('#sidebar-wrapper ul li').hover( function() {
+            hoverTarget = ($(this).attr('id'));
+            expandNavLi(hoverTarget);
+        }, function() {
+            restoreNavLi(hoverTarget);
+        }
+    );
 }
 
 function buildSammich() {
@@ -87,7 +92,12 @@ function expandNavLi(targetId) {
         fontSize: "30px",
         marginTop: "10px",
         marginBottom: "7px"
-    }, 400);
+    }, {
+        duration: 200,
+        specialEasing: {
+            //width: "linear",
+            height: "easeOutBounce"
+        }});
 }
 
 function restoreNavLi(targetId) {

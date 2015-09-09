@@ -48,6 +48,11 @@
     margin-right: -250px;
 }
 
+#sidebar-wrapper ul li {
+    cursor: pointer;
+    cursor: hand;
+}
+
 /* Sidebar Styles */
 
 .sidebar-nav {

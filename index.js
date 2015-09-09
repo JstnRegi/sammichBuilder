@@ -122,13 +122,7 @@ app.get('/user', function(req, res) {
             res.sendFile(path.join(views, 'signup.html'));
         } else {
             console.log('FOUND');
-            //db.Sammich.create(testSammich, function(err, sammich) {
-            //   if(err) {return console.log(err)}
-            //    user.sammichBuilds.push(sammich);
-            //    user.save(function(err, success) {
-            //        console.log(user.sammichBuilds);
-            //    })
-            //});
+
             var data = {
                 username: user.username,
                 sammichBuilds: user.sammichBuilds
