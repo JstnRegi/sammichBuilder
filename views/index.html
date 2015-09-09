@@ -16,6 +16,8 @@
     <!--Stylesheets-->
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="/static/css/modal.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
+
 
     <!--Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900' rel='stylesheet' type='text/css'>
@@ -95,23 +97,66 @@
 
             </div>
         </div>
-        <br><br>
 
-        <!--temporary-->
-        <br><br><br><br>
-        <div id="build-container" class="container col-sm-12 layout">
-            <div id="building-nav" class="col-sm-2 building-layout">
-                <div id="ingredients" class="col-sm-12">
-                    Things
-                </div>
+        <div id="build-container" class="container col-sm-12 col-md-12 col-lg-12 layout">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
             </div>
-            <div class="col-sm-10" id="right">
-                <div class="col-sm-6">
-                    Things
+            <div id="wrapper">
+                <!-- Sidebar -->
+                <div id="sidebar-wrapper">
+                    <ul class="sidebar-nav">
+                        <li id="instructions" class="sidebar-brand">
+                            <a >
+                                Start Bootstrap
+                            </a>
+                        </li>
+                        <li id="info">
+                            <a >Dashboard</a>
+                        </li>
+                        <li id="3">
+                            <a href="#">Shortcuts</a>
+                        </li>
+                        <li id="4">
+                            <a href="#">Overview</a>
+                        </li>
+                        <li id="5">
+                            <a href="#">Events</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Services</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-sm-6">
-                    Other things
+                <!-- /#sidebar-wrapper -->
+
+                <!-- Page Content -->
+                <div id="page-content-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div id="instructions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Simple Sidebar</h1>
+                                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                                <input type="text">
+                            </div>
+                            <div id="info-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>asjdbas,.jdb</h1>
+                                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                                <a href="#menu-toggle" class="btn btn-default" id="toggle-test">Toggle Menu</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- /#page-content-wrapper -->
             </div>
         </div>
     </div>
@@ -187,6 +232,13 @@
 
 
 
+</script>
+
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
 </script>
 
 

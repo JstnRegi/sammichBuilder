@@ -27,6 +27,7 @@ $(function () {
         });
 
         buildDetails();
+        toggleTest();
 
     });
 
@@ -62,5 +63,23 @@ function renderBuild(data) {
     $('#vacant-content').empty();
     $('#vacant-content').append(detailsHtml);
 
+}
+
+
+function toggleTest() {
+    var lastContent;
+    $("#sidebar-wrapper ul li").click(function() {
+        var target = ($(this).attr('id'));
+        if(lastContent) {
+            $('#' + lastContent + '-content').fadeOut('medium', function() {
+                $('#' + target + '-content').fadeIn('medium');
+            });
+        } else {
+            $('#' + target + '-content').fadeIn('medium');
+        }
+        lastContent = target;
+        console.log(target);
+    });
+    //$('#nav2')
 }
 
