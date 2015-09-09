@@ -27,7 +27,7 @@ $(function () {
         });
 
         buildDetails();
-        toggleTest();
+        currentTab();
 
     });
 
@@ -40,71 +40,41 @@ function buildDetails() {
     var sammich;
     $('#build-list a').click(function() {
         sammich = $(this).attr('id');
-
         $.get('/sammiches', {name: sammich}, function(data) {
             var name = data.name || data;
             $('#vacant-title').empty();
             $('<div >' + name + '</div>').hide().appendTo("#vacant-title").fadeIn('fast');
-            //$('#vacant-title').fadeIn('slow', function() {
-            //    $('#vacant-title').append(data.name || data);
-            //});
-            console.log(data);
-            renderBuild(data);
+            renderBuildArea(data);
         });
-        console.log(sammich);
     });
 }
 
-function renderBuild(data) {
+function renderBuildArea(data) {
     var detailsTemplate = _.template($('#details-template').html());
-
     var detailsHtml = detailsTemplate(data);
-
     $('#vacant-content').empty();
     $('#vacant-content').append(detailsHtml);
-
 }
 
 var lastContent;
-function toggleTest() {
-
+function currentTab() {
     $("#sidebar-wrapper ul li").click(function() {
         var target = ($(this).attr('id'));
         if(lastContent) {
-            $('#' + target).animate({
-                fontSize: "30px",
-                marginTop: "10px",
-                marginBottom: "7px"
-            }, 400);
-            $('#' + lastContent).animate({
-                fontSize: "15px",
-                marginTop: "5px",
-                marginBottom: "5px"
-            }, 400);
+            expandNavLi(target);
+            restoreNavLi(lastContent);
             $('#' + lastContent + '-content').fadeOut('medium', function() {
-
-                console.log(lastContent);
                 $('#' + target + '-content').fadeIn('medium');
-                //$('#' + target).addClass('current-tab');
-
-
             });
         } else {
-            $('#' + target + '-content').fadeIn('medium');
-            $('#' + target).animate({
-                fontSize: "25px",
-                marginTop: "10px",
-                marginBottom: "5px"
-            }, 400);
-            $('#instructions').animate({
-                fontSize: "15px",
-                marginTop: "5px",
-                marginBottom: "5px"
-            }, 400);
+            expandNavLi(target);
+            $('#instructions-content').fadeOut('medium', function() {
+                $('#' + target + '-content').fadeIn('medium');
+            });
+            restoreNavLi('instructions');
         }
         lastContent = target;
     });
-    //$('#nav2')
 }
 
 function buildSammich() {
@@ -112,18 +82,21 @@ function buildSammich() {
     console.log('test');
 }
 
-function restore(elem) {
-        var orig = $(elem)(this, 'css');
-        $(elem).animate({
-            opacity: orig.opacity,
-            width: orig.width}, 500);
+function expandNavLi(targetId) {
+    $('#' + targetId).animate({
+        fontSize: "30px",
+        marginTop: "10px",
+        marginBottom: "7px"
+    }, 400);
 }
 
-//$( "#block" ).animate({
-//    width: "70%",
-//    opacity: 0.4,
-//    marginLeft: "0.6in",
-//    fontSize: "3em",
-//    borderWidth: "10px"
-//}, 1500 );
+function restoreNavLi(targetId) {
+    $('#' + targetId).animate({
+        fontSize: "15px",
+        marginTop: "5px",
+        marginBottom: "5px"
+    }, 400);
+}
+
+
 

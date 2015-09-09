@@ -132,7 +132,7 @@
                 <div id="page-content-wrapper">
                     <div class="container-fluid">
                         <div class="row">
-                            <div id="instructions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                            <div id="instructions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display: block">
                                 <h1>Instructions</h1>
                                 <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                                 <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
@@ -140,7 +140,15 @@
                                 <input type="text">
                             </div>
                             <div id="info-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
-                                <h1>Sandwich Info</h1>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <h1>Sandwich Info</h1>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                        <input type="text" placeholder="Sandwich Name e.g. 'The Ace of Clubs', 'PByouJelly?'"
+                                    </div>
+
+                                </div>
 
                                 <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
                             </div>
