@@ -65,21 +65,65 @@ function renderBuild(data) {
 
 }
 
-
+var lastContent;
 function toggleTest() {
-    var lastContent;
+
     $("#sidebar-wrapper ul li").click(function() {
         var target = ($(this).attr('id'));
         if(lastContent) {
+            $('#' + target).animate({
+                fontSize: "30px",
+                marginTop: "10px",
+                marginBottom: "7px"
+            }, 400);
+            $('#' + lastContent).animate({
+                fontSize: "15px",
+                marginTop: "5px",
+                marginBottom: "5px"
+            }, 400);
             $('#' + lastContent + '-content').fadeOut('medium', function() {
+
+                console.log(lastContent);
                 $('#' + target + '-content').fadeIn('medium');
+                //$('#' + target).addClass('current-tab');
+
+
             });
         } else {
             $('#' + target + '-content').fadeIn('medium');
+            $('#' + target).animate({
+                fontSize: "25px",
+                marginTop: "10px",
+                marginBottom: "5px"
+            }, 400);
+            $('#instructions').animate({
+                fontSize: "15px",
+                marginTop: "5px",
+                marginBottom: "5px"
+            }, 400);
         }
         lastContent = target;
-        console.log(target);
     });
     //$('#nav2')
 }
+
+function buildSammich() {
+    var sammich = {};
+    console.log('test');
+}
+
+function restore(elem) {
+        var orig = $(elem)(this, 'css');
+        $(elem).animate({
+            opacity: orig.opacity,
+            width: orig.width}, 500);
+}
+
+//$( "#block" ).animate({
+//    width: "70%",
+//    opacity: 0.4,
+//    marginLeft: "0.6in",
+//    fontSize: "3em",
+//    borderWidth: "10px"
+//}, 1500 );
 

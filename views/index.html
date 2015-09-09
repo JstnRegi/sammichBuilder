@@ -105,32 +105,24 @@
             <div id="wrapper">
                 <!-- Sidebar -->
                 <div id="sidebar-wrapper">
-                    <ul class="sidebar-nav">
-                        <li id="instructions" class="sidebar-brand">
-                            <a >
-                                Start Bootstrap
-                            </a>
+                    <ul class="sidebar-nav text-right">
+                        <li id="instructions" class="current-tab">
+                            <a>Instructions &nbsp; &nbsp;</a>
                         </li>
                         <li id="info">
-                            <a >Dashboard</a>
+                            <a>Information &nbsp; &nbsp;</a>
                         </li>
-                        <li id="3">
-                            <a href="#">Shortcuts</a>
+                        <li id="materials">
+                            <a>Materials &nbsp; &nbsp;</a>
                         </li>
-                        <li id="4">
-                            <a href="#">Overview</a>
+                        <li id="stats">
+                            <a>Stats &nbsp; &nbsp;</a>
                         </li>
-                        <li id="5">
-                            <a href="#">Events</a>
+                        <li id="picture">
+                            <a>Picture &nbsp; &nbsp;</a>
                         </li>
-                        <li>
-                            <a href="#">About</a>
-                        </li>
-                        <li>
-                            <a href="#">Services</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
+                        <li id="directions">
+                            <a>Directions &nbsp; &nbsp;</a>
                         </li>
                     </ul>
                 </div>
@@ -141,17 +133,38 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div id="instructions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
-                                <h1>Simple Sidebar</h1>
+                                <h1>Instructions</h1>
                                 <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                                 <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
                                 <input type="text">
                             </div>
                             <div id="info-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
-                                <h1>asjdbas,.jdb</h1>
-                                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                                <a href="#menu-toggle" class="btn btn-default" id="toggle-test">Toggle Menu</a>
+                                <h1>Sandwich Info</h1>
+
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                            </div>
+                            <div id="materials-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Sandwich Materials</h1>
+
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                <input type="text">
+                            </div>
+                            <div id="stats-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Sandwich Stats</h1>
+
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                            </div>
+                            <div id="picture-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Picture of Sandwich</h1>
+
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                <input type="text">
+                            </div>
+                            <div id="directions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                <h1>Directions</h1>
+
+                                <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
                             </div>
                         </div>
                     </div>
