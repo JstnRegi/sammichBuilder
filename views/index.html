@@ -120,6 +120,9 @@
                             <li id="directions">
                                 <a>Directions &nbsp; &nbsp;</a>
                             </li>
+                            <li id="overview">
+                                <a>Overview &nbsp; &nbsp;</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /#sidebar-wrapper -->
@@ -194,7 +197,7 @@
                                             <h1 class="build-header">Sandwich Stats</h1>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <form>
+                                            <form id="stats-form">
                                                 <div class="row text-center"><h3  id="rate-header">Rate the taste</h3></div>
                                                 <div id="stats-row" class="row">
                                                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center" placeholder="1">
@@ -228,7 +231,7 @@
                                 <div id="picture-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
                                     <h1>Picture of Sandwich</h1>
 
-                                    <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                    <a href="#menu-toggle" class="btn btn-default" onclick="">Toggle Menu</a>
                                     <input type="text">
                                 </div>
                                 <div id="directions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
@@ -237,9 +240,24 @@
                                             <h1 class="build-header">Sandwich Build Directions</h1>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <form class="text-center">
-                                                <h3>Sandwich Description</h3>
-                                                <textarea class="form-control build-textarea build-form-center build-form-roomy" rows="4" placeholder="Directions on how to put the sandwich together"></textarea>
+                                            <form id="directions-form" class="text-center">
+                                                <h3>Remind yourself, or the next guy how to build the sandwich</h3>
+                                                <textarea id="directions-input" class="form-control build-textarea build-form-center build-form-roomy" rows="4" placeholder="Directions on how to put the sandwich together"></textarea>
+                                                <button type="submit" class="btn btn default">Save Directions</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="overview-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <h1 class="build-header">The Sandwich Build</h1>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <form id="directions-form" class="text-center">
+                                                <h3>Remind yourself, or the next guy how to build the sandwich</h3>
+                                                <textarea id="directions-input" class="form-control build-textarea build-form-center build-form-roomy" rows="4" placeholder="Directions on how to put the sandwich together"></textarea>
+                                                <button type="submit" class="btn btn default">Save Directions</button>
                                             </form>
                                         </div>
                                     </div>
