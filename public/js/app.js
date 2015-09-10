@@ -86,6 +86,7 @@ function currentTab() {
 var sammich = {};
 var ingredient;
 var ingredients = [];
+var finalIngredients;
 function buildSammich() {
     $('#info-form').submit(function(e) {
         e.preventDefault();
@@ -99,13 +100,13 @@ function buildSammich() {
     $('#materials-form').submit(function(e) {
         e.preventDefault();
         ingredient = $('#ingredient').val();
-        ingredients.push(ingredient);
-        $('#ingredient').val('');
-        $('#ingredients-list').append('<li id="' + ingredient + '" class="ingredient-li">' + ingredient +
-            '<button data-id="' + ingredient + '"' + ' onclick="deleteIngredient(this)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + '</li>');
+        if(ingredient) {
+            ingredients.push(ingredient);
+            $('#ingredient').val('');
+            $('#ingredients-list').append('<li id="' + ingredient + '" class="ingredient-li">' + ingredient +
+                '<button data-id="' + ingredient + '"' + ' onclick="deleteIngredient(this)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + '</li>');
+        }
     });
-
-
 }
 
 function deleteIngredient(context) {
@@ -113,6 +114,12 @@ function deleteIngredient(context) {
     var targetPosition = ingredients.indexOf(target);
     $('#' + target).remove();
     ingredients.splice(targetPosition, 1);
+}
+
+function saveIngredients() {
+    finalIngredients = ingredients;
+    sammich.ingredients = finalIngredients;
+    console.log(sammich.ingredients);
 }
 
 function expandNavLi(targetId) {

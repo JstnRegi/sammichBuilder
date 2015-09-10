@@ -165,7 +165,17 @@
                                             <form id="materials-form" class="text-center">
                                                 <div id="sandwich-name-container">
                                                     <h3></h3>
-                                                    <input id="ingredient" class="build-input form-control build-form-center build-form-roomy" type="text" placeholder='&nbsp; e.g. "Salami"'>
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <input id="ingredient" class="build-input form-control build-form-center build-form-roomy" type="text" placeholder='&nbsp; e.g. "Salami"'>
+                                                    </div>
+                                                    <div id="ingredient-buttons" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                                                            <button type="submit" class="btn btn default">Add Ingredient</button>
+                                                        </div>
+                                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left">
+                                                            <button type="button" class="btn btn default" onclick="saveIngredients()">Save Ingredients</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </form>
                                         </div>
