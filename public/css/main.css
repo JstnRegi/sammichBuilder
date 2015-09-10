@@ -94,10 +94,6 @@ dl.dl-horizontal a dt {
     height: 800px;
 }
 
-#ingredients {
-
-}
-
 #sign-login {
     height: 50px;
 }
@@ -159,7 +155,7 @@ dl.dl-horizontal a dt {
     overflow-x: scroll;;
 }
 
-#ingredients {
+#ingredients-list {
     width: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -175,6 +171,7 @@ dl.dl-horizontal a dt {
     text-align: center;
     right: 25px;
     position: relative;
+    height: 25px;
 }
 
 .bold {
