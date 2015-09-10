@@ -17,9 +17,6 @@ $(function () {
                 description: e.description
             };
 
-            //$('#build-list').prepend('' +
-            //'<a id="' + e.name + '"' + '><dt>' +  e.name  + '</dt></a>' +
-            //'<dd>' +  e.description + '</dd>');
 
             var sammichHtml = buildTemplate(sammichInfo);
             $('#build-list').append(sammichHtml);
@@ -83,6 +80,8 @@ function currentTab() {
 }
 
 var sammich = {};
+sammich.description = '';
+
 var ingredient;
 var ingredients = [];
 var finalIngredients;
@@ -91,11 +90,10 @@ function buildSammich() {
     $('#info-form').submit(function(e) {
         e.preventDefault();
         var name = $('#sandwich-name').val();
-        var description = $('#sandwich-description').val();
+        var description = $('#sandwich-description').val() || 'None specified';
 
         sammich.name = name;
         sammich.description = description;
-        console.log(sammich.description);
         renderOverview();
     });
     $('#materials-form').submit(function(e) {
@@ -123,14 +121,17 @@ function buildSammich() {
         stats.sour = sour;
         sammich.stats = stats;
 
-        console.log(sammich.stats);
+        renderOverview();
     });
     $('#directions-form').submit(function(e) {
         e.preventDefault();
-        var directions = $('#directions-input').val();
+        var directions = $('#directions-input').val() || 'None specified';
         sammich.directions = directions;
 
-        console.log(sammich.directions);
+        renderOverview();
+    });
+    $('#save-ingredients').click(function() {
+        renderOverview();
     })
 }
 
@@ -146,8 +147,6 @@ function saveIngredients() {
     sammich.ingredients = finalIngredients;
     console.log(sammich.ingredients);
 }
-
-
 
 function expandNavLi(targetId) {
     $('#' + targetId).animate({
@@ -173,8 +172,10 @@ function restoreNavLi(targetId) {
 function renderOverview() {
     var overviewTemplate = _.template($('#overview-template').html());
     var overviewHtml = overviewTemplate(sammich);
-
+    $('#overview-info').empty();
     $('#overview-info').append(overviewHtml);
+
+    console.log('test');
 
     //var detailsTemplate = _.template($('#details-template').html());
     //var detailsHtml = detailsTemplate(data);

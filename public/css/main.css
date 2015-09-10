@@ -191,6 +191,16 @@ dl.dl-horizontal a dt {
     height: 300px;
 }
 
+#overview-dl {
+    width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#overview-dd {
+    text-align: center;
+}
+
 .bold {
     font-weight: 700;
 }

@@ -19,42 +19,53 @@ var testSammich = {
 };
 
 var testUser = {
-    username: 'sammichSage',
+    username: 'The Sandwich Sage',
     email: 'test@123',
-    password: 'secret'
+    password: 'qwertya'
 };
 
-//db.Sammich.remove({}, function(err, sammiches) {
-//    if(err) {
-//        return console.log(err);
-//    }
-//});
-//
-//db.Sammich.create(testSammich, function(err, sammich) {
-//    if(err) {
-//        return console.log(err);
-//    }
-//    db.Sammich.find({}, function(err, sammiches) {
-//        console.log(sammiches);
-//    });
-//});
 
-//var username = testUser.username;
-//var password = testUser.password;
-//
-//db.User.createSecure(email, password, function(err, user) {
-//    if(err) {
-//        return console.log(err);
-//    }
-//    console.log(user);
-//});
+db.Sammich.remove({}, function(err, sammiches) {
+    if(err) {
+        return console.log(err);
+    }
+});
 
-//db.Sammich.find({}, function(err, sammiches) {
-//   if(err) {
-//       return console.log(err);
-//   }
-//    console.log(sammiches);
-//});
+db.User.remove({}, function(err, sammiches) {
+    if(err) {
+        return console.log(err);
+    }
+});
+
+var username = testUser.username;
+var password = testUser.password;
+
+db.User.createSecure(username, email, password, function(err, user) {
+    if(err) {
+        return console.log(err);
+    } else {
+        db.Sammich.create(testSammich, function(err, sammich) {
+            if(err) {
+                return console.log(err);
+            }
+            user.sammichBuilds.push(sammich);
+            user.save(function(err, success) {
+                if(err) {
+                    return console.log(err);
+                }
+                console.log('Sandwich added to user builds');
+            });
+        });
+        console.log('User added successfully');
+    }
+});
+
+db.Sammich.find({}, function(err, sammiches) {
+   if(err) {
+       return console.log(err);
+   }
+    console.log(sammiches);
+});
 
 db.User.find({}, function(err, users) {
    if(err) {
@@ -63,10 +74,5 @@ db.User.find({}, function(err, users) {
     console.log(users);
 });
 
-//db.User.remove({}, function(err, users) {
-//   if(err) {
-//       return console.log(err);
-//   }
-//    console.log(users);
-//
-//});
+
+
