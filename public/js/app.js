@@ -28,7 +28,6 @@ $(function () {
         buildDetails();
         currentTab();
         buildSammich();
-
     });
 
 //buildDetails();
@@ -97,6 +96,7 @@ function buildSammich() {
         sammich.name = name;
         sammich.description = description;
         console.log(sammich.description);
+        renderOverview();
     });
     $('#materials-form').submit(function(e) {
         e.preventDefault();
@@ -168,6 +168,18 @@ function restoreNavLi(targetId) {
         marginTop: "5px",
         marginBottom: "5px"
     }, 400);
+}
+
+function renderOverview() {
+    var overviewTemplate = _.template($('#overview-template').html());
+    var overviewHtml = overviewTemplate(sammich);
+
+    $('#overview-info').append(overviewHtml);
+
+    //var detailsTemplate = _.template($('#details-template').html());
+    //var detailsHtml = detailsTemplate(data);
+    //$('#vacant-content').empty();
+    //$('#vacant-content').append(detailsHtml);
 }
 
 
