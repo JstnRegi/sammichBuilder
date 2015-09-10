@@ -120,6 +120,9 @@
                             <li id="directions">
                                 <a>Directions &nbsp; &nbsp;</a>
                             </li>
+                            <li id="overview">
+                                <a>Overview &nbsp; &nbsp;</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /#sidebar-wrapper -->
@@ -185,7 +188,6 @@
                                                     Ingredients go here
                                                 </li>
                                             </ul>
-
                                         </div>
                                     </div>
                                 </div>
@@ -195,27 +197,31 @@
                                             <h1 class="build-header">Sandwich Stats</h1>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <form>
+                                            <form id="stats-form">
+                                                <div class="row text-center"><h3  id="rate-header">Rate the taste</h3></div>
                                                 <div id="stats-row" class="row">
                                                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center" placeholder="1">
-                                                        <h3>Sweet</h3>
+                                                        <h4>Sweet</h4>
                                                         <input id="sweet" type="number" min="1" max="99" placeholder="1">
                                                     </div>
                                                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center" placeholder="1">
-                                                        <h3>Spicy</h3>
+                                                        <h4>Spicy</h4>
                                                         <input id="spicy" type="number" min="1" max="99" placeholder="1">
                                                     </div>
                                                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center" placeholder="1">
-                                                        <h3>Saltiness</h3>
+                                                        <h4>Saltiness</h4>
                                                         <input id="saltiness" type="number" min="1" max="99" placeholder="1">
                                                     </div>
                                                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
-                                                        <h3>Savory</h3>
+                                                        <h4>Savory</h4>
                                                         <input id="savory" type="number" min="1" max="99" placeholder="1">
                                                     </div>
                                                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center" placeholder="1">
-                                                        <h3>Sour</h3>
+                                                        <h4>Sour</h4>
                                                         <input id="sour" type="number" min="1" max="99" placeholder="1">
+                                                    </div>
+                                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                        <button id="stats-submit" class="btn btn-default" type="submit">Save Stats</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -225,7 +231,7 @@
                                 <div id="picture-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
                                     <h1>Picture of Sandwich</h1>
 
-                                    <a href="#menu-toggle" class="btn btn-default" onclick="buildSammich()">Toggle Menu</a>
+                                    <a href="#menu-toggle" class="btn btn-default" onclick="">Toggle Menu</a>
                                     <input type="text">
                                 </div>
                                 <div id="directions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
@@ -234,10 +240,21 @@
                                             <h1 class="build-header">Sandwich Build Directions</h1>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <form class="text-center">
-                                                <h3>Sandwich Description</h3>
-                                                <textarea class="form-control build-textarea build-form-center build-form-roomy" rows="4" placeholder="Directions on how to put the sandwich together"></textarea>
+                                            <form id="directions-form" class="text-center">
+                                                <h3>Remind yourself, or the next guy how to build the sandwich</h3>
+                                                <textarea id="directions-input" class="form-control build-textarea build-form-center build-form-roomy" rows="4" placeholder="Directions on how to put the sandwich together"></textarea>
+                                                <button type="submit" class="btn btn default">Save Directions</button>
                                             </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="overview-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <h1 class="build-header">The Sandwich Build</h1>
+                                        </div>
+                                        <div id="overview-info" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
                                         </div>
                                     </div>
                                 </div>
@@ -317,9 +334,24 @@
         </div>
         <%= comments %>
     </div>
+</script>
 
-
-
+<script type="text/template" id="overview-template">
+    <div id="overview-container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 roomy">
+                <div id="overview-picture" class="building-layout">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                <h3>Sandwich Information</h3>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                    <p><%= name %></p>
+                    <p><%= description %></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </script>
 
 <script>
@@ -330,18 +362,6 @@
 </script>
 
 
-<!--<div class="col-sm-12">-->
-    <!--<dt>Sandwich type:</dt>-->
-    <!--<dd><%= sammichType %></dd>-->
-<!--</div>-->
-<!--<br>-->
-<!--<br>-->
-<!--&lt;!&ndash;<div id="sammich-stats" class="col-sm-12 text-center">&ndash;&gt;-->
-<!--&lt;!&ndash; &ndash;&gt;-->
-<!--&lt;!&ndash;</div><br>&ndash;&gt;-->
-<!--<div class="col-sm-12">-->
-    <!-- -->
-<!--</div>-->
 </body>
 </html>
 

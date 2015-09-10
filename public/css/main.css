@@ -165,12 +165,6 @@ dl.dl-horizontal a dt {
     margin-right: auto;
 }
 
-#stats-row {
-    width: 1000px;
-    margin-left: 215px;
-    margin-right: auto;
-}
-
 #ingredient-buttons {
     margin-bottom: 20px;
 }
@@ -179,6 +173,22 @@ dl.dl-horizontal a dt {
     text-align: center;
     position: relative;
     height: 25px;
+}
+
+#rate-header {
+    margin-bottom: 35px;
+}
+
+#stats-submit {
+    height: 100px;
+    margin-left: 15px;
+}
+
+#overview-picture {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 300px;
 }
 
 .bold {
@@ -209,7 +219,7 @@ dl.dl-horizontal a dt {
 }
 
 .building-layout {
-    background-color: rgba(255, 255, 255, 0.76);
+    background-color: rgba(0, 0, 0, 0.76);
 }
 
 .row.black-background {

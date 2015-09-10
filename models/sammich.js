@@ -15,8 +15,8 @@ var sammichSchema = new Schema ({
         saltiness: Number,
         savory: Number
     },
-    vegetarian: Boolean,
     ingredients: [],
+    directions: String,
     comments: [/*logic to dynamically get comments here*/]
 });
 

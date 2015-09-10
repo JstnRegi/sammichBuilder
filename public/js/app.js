@@ -28,7 +28,6 @@ $(function () {
         buildDetails();
         currentTab();
         buildSammich();
-
     });
 
 //buildDetails();
@@ -87,6 +86,7 @@ var sammich = {};
 var ingredient;
 var ingredients = [];
 var finalIngredients;
+var stats = {};
 function buildSammich() {
     $('#info-form').submit(function(e) {
         e.preventDefault();
@@ -96,6 +96,7 @@ function buildSammich() {
         sammich.name = name;
         sammich.description = description;
         console.log(sammich.description);
+        renderOverview();
     });
     $('#materials-form').submit(function(e) {
         e.preventDefault();
@@ -107,6 +108,30 @@ function buildSammich() {
                 '<button data-id="' + ingredient + '"' + ' onclick="deleteIngredient(this)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + '</li>');
         }
     });
+    $('#stats-form').submit(function(e) {
+        e.preventDefault();
+        var sweet = $('#sweet').val();
+        var spicy = $('#spicy').val();
+        var saltiness = $('#saltiness').val();
+        var savory = $('#savory').val();
+        var sour = $('#sour').val();
+
+        stats.sweet = sweet;
+        stats.spicy = spicy;
+        stats.saltiness = saltiness;
+        stats.savory = savory;
+        stats.sour = sour;
+        sammich.stats = stats;
+
+        console.log(sammich.stats);
+    });
+    $('#directions-form').submit(function(e) {
+        e.preventDefault();
+        var directions = $('#directions-input').val();
+        sammich.directions = directions;
+
+        console.log(sammich.directions);
+    })
 }
 
 function deleteIngredient(context) {
@@ -121,6 +146,8 @@ function saveIngredients() {
     sammich.ingredients = finalIngredients;
     console.log(sammich.ingredients);
 }
+
+
 
 function expandNavLi(targetId) {
     $('#' + targetId).animate({
@@ -141,6 +168,18 @@ function restoreNavLi(targetId) {
         marginTop: "5px",
         marginBottom: "5px"
     }, 400);
+}
+
+function renderOverview() {
+    var overviewTemplate = _.template($('#overview-template').html());
+    var overviewHtml = overviewTemplate(sammich);
+
+    $('#overview-info').append(overviewHtml);
+
+    //var detailsTemplate = _.template($('#details-template').html());
+    //var detailsHtml = detailsTemplate(data);
+    //$('#vacant-content').empty();
+    //$('#vacant-content').append(detailsHtml);
 }
 
 
