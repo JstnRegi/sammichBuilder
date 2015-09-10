@@ -176,7 +176,7 @@
                                                             <button type="submit" class="btn btn default">Add Ingredient</button>
                                                         </div>
                                                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left">
-                                                            <button type="button" class="btn btn default" onclick="saveIngredients()">Save Ingredients</button>
+                                                            <button id="save-ingredients" type="button" class="btn btn default" onclick="saveIngredients()">Save Ingredients</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -272,7 +272,7 @@
 
 <script type="text/template" id="build-template">
     <a id="<%= name %>"><dt><%= name %></dt></a>
-    <dd><%= description %></dd>
+    <!--<dd><%= description %></dd>-->
 </script>
 
 <script type="text/template" id="details-template">
@@ -344,10 +344,34 @@
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-                <h3>Sandwich Information</h3>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                    <p><%= name %></p>
-                    <p><%= description %></p>
+                <div id="dl-container" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                    <div id="dl-list" class="dl-horizontal text-left">
+                        <dt>Name</dt>
+                        <dd class="text-left"><%= name %></dd>
+
+                        <dt>Description</dt>
+                        <dd class="text-left"><% if(description) { %>
+                            <%= description %> <% } %> </dd>
+
+                        <dt>Materials</dt>
+                        <dd class="text-left"><% ingredients.forEach(function(e) {%>
+                            &#8226;<%= e %> &nbsp; <% }) %></dd>
+
+                        <dt>Stats</dt>
+                        <dd><% if(stats.sweet) { %>
+                            Sweet: <%= stats.sweet %> &nbsp; Spicy: <%= stats.spicy %> &nbsp; Saltiness: <%= stats.saltiness %>
+                            Savory: <%= stats.savory %> &nbsp; Sour: <%= stats.sour %> <% } else { %>
+                            None Specified <% } %>  </dd>
+
+                        <dt>Directions</dt>
+                        <dd><% if(directions.length) { %>
+                                <%= directions %> <% } else { %>
+                                None Specified <% } %></dd>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
                 </div>
             </div>
         </div>
