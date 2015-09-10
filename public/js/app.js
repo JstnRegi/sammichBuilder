@@ -27,6 +27,7 @@ $(function () {
 
         buildDetails();
         currentTab();
+        buildSammich();
 
     });
 
@@ -82,9 +83,43 @@ function currentTab() {
     );
 }
 
+var sammich = {};
+var ingredient;
+var ingredients = [];
+var finalIngredients;
 function buildSammich() {
-    var sammich = {};
-    console.log('test');
+    $('#info-form').submit(function(e) {
+        e.preventDefault();
+        var name = $('#sandwich-name').val();
+        var description = $('#sandwich-description').val();
+
+        sammich.name = name;
+        sammich.description = description;
+        console.log(sammich.description);
+    });
+    $('#materials-form').submit(function(e) {
+        e.preventDefault();
+        ingredient = $('#ingredient').val();
+        if(ingredient) {
+            ingredients.push(ingredient);
+            $('#ingredient').val('');
+            $('#ingredients-list').append('<li id="' + ingredient + '" class="ingredient-li">' + ingredient +
+                '<button data-id="' + ingredient + '"' + ' onclick="deleteIngredient(this)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + '</li>');
+        }
+    });
+}
+
+function deleteIngredient(context) {
+    var target = $(context).data().id;
+    var targetPosition = ingredients.indexOf(target);
+    $('#' + target).remove();
+    ingredients.splice(targetPosition, 1);
+}
+
+function saveIngredients() {
+    finalIngredients = ingredients;
+    sammich.ingredients = finalIngredients;
+    console.log(sammich.ingredients);
 }
 
 function expandNavLi(targetId) {
