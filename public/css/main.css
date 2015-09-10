@@ -165,12 +165,6 @@ dl.dl-horizontal a dt {
     margin-right: auto;
 }
 
-#stats-row {
-    width: 1000px;
-    margin-left: 215px;
-    margin-right: auto;
-}
-
 #ingredient-buttons {
     margin-bottom: 20px;
 }
@@ -179,6 +173,15 @@ dl.dl-horizontal a dt {
     text-align: center;
     position: relative;
     height: 25px;
+}
+
+#rate-header {
+    margin-bottom: 35px;
+}
+
+#stats-submit {
+    height: 100px;
+    margin-left: 15px;
 }
 
 .bold {
