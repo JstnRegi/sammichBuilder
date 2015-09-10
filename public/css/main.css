@@ -156,7 +156,25 @@ dl.dl-horizontal a dt {
     margin-top: 50px;
     margin-bottom: 100px;
     height: 600px;
+    overflow-x: scroll;;
+}
 
+#ingredients {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#stats-row {
+    width: 1000px;
+    margin-left: 215px;
+    margin-right: auto;
+}
+
+.ingredient-li {
+    text-align: center;
+    right: 25px;
+    position: relative;
 }
 
 .bold {
@@ -218,10 +236,10 @@ dl.dl-horizontal a dt {
 }
 
 .build-header {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     height: 80px;
     border-bottom: 1px solid #D2E35C;
-    font-size: 70px;
+    font-size: 60px;
 }
 
 .build-form-roomy {

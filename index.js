@@ -121,8 +121,6 @@ app.get('/user', function(req, res) {
         if (user === null) {
             res.sendFile(path.join(views, 'signup.html'));
         } else {
-            console.log('FOUND');
-
             var data = {
                 username: user.username,
                 sammichBuilds: user.sammichBuilds

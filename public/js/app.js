@@ -27,6 +27,7 @@ $(function () {
 
         buildDetails();
         currentTab();
+        buildSammich();
 
     });
 
@@ -84,7 +85,15 @@ function currentTab() {
 
 function buildSammich() {
     var sammich = {};
-    console.log('test');
+    $('#info-form').submit(function(e) {
+        e.preventDefault();
+        var name = $('#sandwich-name').val();
+        var description = $('#sandwich-description').val();
+
+        sammich.name = name;
+        sammich.description = description;
+        console.log(sammich);
+    });
 }
 
 function expandNavLi(targetId) {
