@@ -174,13 +174,6 @@ function renderOverview() {
     var overviewHtml = overviewTemplate(sammich);
     $('#overview-info').empty();
     $('#overview-info').append(overviewHtml);
-
-    console.log('test');
-
-    //var detailsTemplate = _.template($('#details-template').html());
-    //var detailsHtml = detailsTemplate(data);
-    //$('#vacant-content').empty();
-    //$('#vacant-content').append(detailsHtml);
 }
 
 
