@@ -43,7 +43,7 @@ db.User.remove({}, function(err, sammiches) {
 var username = testUser.username;
 var password = testUser.password;
 var email = testUser.email;
-var picture = testUser.password;
+var picture = testUser.picture;
 
 db.User.createSecure(username, email, password, picture, function(err, user) {
     if(err) {
