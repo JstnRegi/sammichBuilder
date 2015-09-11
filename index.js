@@ -19,9 +19,6 @@ cloudinary.config({
     api_secret: 'gMbB_F4Bd4gqhcxtzn8g7U0icDg'
 });
 
-
-
-
 var testSammich = {
     name: 'BLT',
     craftsman: 'sammichSage',
@@ -210,16 +207,18 @@ app.post('/sammichpictures', function(req, res, next) {
     });
 });
 
-app.post('/users', function(req,res) {
+app.post('/users', function(req,res, next) {
     var user = req.body.user;
     var username = user.username;
     var email = user.email;
     var password = user.password;
 
+    console.log('sanity');
     db.User.createSecure(username, email, password, function(err, user) {
-       console.log(user);
+        console.log(user);
+        req.login(user);
+        res.redirect('/home');
     });
-    res.send(email + ' Thanks for signing up');
 });
 
 

@@ -45,11 +45,7 @@
                                     <div class="form-group">
                                         <input type="password" name="user[password]" id="password-login" tabindex="2" class="form-control" placeholder="Password">
                                     </div>
-                                    <!--Remember me-->
-                                    <!--<div class="form-group text-center">-->
-                                    <!--<input type="checkbox" tabindex="3" class="" name="remember" id="remember">-->
-                                    <!--<label for="remember"> Remember Me</label>-->
-                                    <!--</div>-->
+
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
@@ -57,18 +53,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--Forgot Password-->
-                                    <!--<div class="form-group">-->
-                                    <!--<div class="row">-->
-                                    <!--<div class="col-lg-12">-->
-                                    <!--<div class="text-center">-->
-                                    <!--<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
                                 </form>
-                                <form id="register-form" action="/users" method="POST" role="form" style="display: none;">
+                                <form id="register-form" action="/users" method="POST" enctype="multipart/form-data" role="form" style="display: none;">
                                     <div class="form-group">
                                         <input type="text" name="user[username]" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                                     </div>

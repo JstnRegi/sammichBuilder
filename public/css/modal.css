@@ -2,6 +2,10 @@ html, body, #login-register {
     height: 100%;
 }
 
+body {
+    background-image: url("/static/images/sandwic-cover.jpg") no-repeat center center fixed;
+}
+
 #login-register {
     display: table;
     vertical-align: middle;

@@ -1,6 +1,6 @@
 html, body {
     background: url("/static/images/sandwiches.png") no-repeat center center fixed;
-    background-size: 100% 100%;
+    background-size: 100%;
 }
 
 #title-splash {
@@ -12,6 +12,17 @@ html, body {
     /*-o-background-size: cover;*/
     /*background-size: cover;*/
 
+}
+
+#logout-button {
+    float: right;
+    position: absolute;
+    right: 40px;
+    top: 10px;
+    background-color: #1AF8D9;
+    height: 30px;
+    border-radius: 0px;
+    width: 80px;
 }
 
 #title {

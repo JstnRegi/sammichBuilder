@@ -19,7 +19,9 @@ var UserSchema = new Schema ({
         type: Date,
         default: Date.now
     },
-    sammichBuilds: []
+    sammichBuilds: [],
+
+    picture: String
 });
 
 UserSchema.statics.createSecure = function(username, email, password, cb) {
@@ -33,7 +35,7 @@ UserSchema.statics.createSecure = function(username, email, password, cb) {
                 username: username,
                 email: email,
                 passwordDigest: hash,
-                createdAt: Date.now()
+                createdAt: Date.now(),
             };
             //create a new user in the db witt he hashed password and execute the callback when done
             _this.create(user, cb);
