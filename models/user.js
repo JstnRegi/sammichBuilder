@@ -19,9 +19,7 @@ var UserSchema = new Schema ({
         type: Date,
         default: Date.now
     },
-    sammichBuilds: [],
-
-    picture: String
+    sammichBuilds: []
 });
 
 UserSchema.statics.createSecure = function(username, email, password, cb) {
