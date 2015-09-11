@@ -1,43 +1,60 @@
+html, body {
+    background: url("/static/images/sandwiches.png") no-repeat center center fixed;
+    background-size: 100% 100%;
+}
+
 #title-splash {
     height: 300px;
     width: 100%;
-    background: url("/static/images/sandwich-cover.jpg") no-repeat center center fixed;
-    background-position-y: -450px;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    /*background-position-y: -450px;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
 
 }
 
 #title {
     height: 300px;
-    color: white;
-    -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: #168171;
+    top: -18px;
+    color: black;
+    -webkit-text-stroke: 1.5px;
+    margin-left: auto;
+    -webkit-text-stroke-color: black;
+    float: right;
+    bottom: 0px;
+    left: 35px;
+    text-align: right;
+    position: relative;
 }
 
 #sammich {
-    font-size: 95px;
+    font-size: 19px;
     position: relative;
     text-align: center;
-    top: 15px;
-    font-weight: 900;
+    top: 30px;
+    /* font-weight: 900; */
     font-family: 'Source Sans Pro', sans-serif;
+    margin-left: auto;
+    float: none;
+    margin-bottom: 20px;
+    margin-right: auto;
 }
 
 #builder {
-    font-size: 155px;
+    font-size: 46px;
     text-align: center;
     position: relative;
-    font-weight: 900;
-    margin-top: -58px;
+    /* font-weight: 900; */
+    /* margin-top: -58px; */
     font-family: 'Source Sans Pro', sans-serif;
+    /* margin-left: 4%; */
+    float: none;
 }
 
 #body-container {
     padding-top: 70px;
-    background-color: rgba(7, 24, 39, 0.95);
+    background-color: rgba(0, 34, 64, 0.92);
 }
 
 #profile-area {
