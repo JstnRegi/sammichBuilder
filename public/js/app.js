@@ -3,7 +3,6 @@ $(function () {
     renderUser();
     currentTab();
     buildSammich();
-
 });
 
 
@@ -32,15 +31,13 @@ function renderUser() {
         $('#craftsmen-name').append(username);
 
         var sammichData = data.sammichBuilds;
+        console.log(sammichData);
         sammichData.forEach(function(e) {
 
             var sammichInfo = {
                 name: e.name,
                 description: e.description
             };
-
-            console.log(sammichInfo);
-
             var sammichHtml = buildTemplate(sammichInfo);
             $('#build-list').append(sammichHtml);
         });
@@ -70,7 +67,6 @@ function currentTab() {
                 $('#' + target + '-content').fadeIn('medium');
             });
         }
-        console.log(target);
         lastContent = target;
     });
     var hoverTarget;
@@ -95,7 +91,9 @@ function buildSammich() {
         e.preventDefault();
         var name = $('#sandwich-name').val();
         var description = $('#sandwich-description').val() || 'None specified';
+        var type = $('#sandwich-type').val();
 
+        sammich.sammichType = type;
         sammich.name = name;
         sammich.description = description;
         renderOverview();

@@ -201,6 +201,13 @@ dl.dl-horizontal a dt {
     text-align: center;
 }
 
+#sandwich-type {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: #168172;
+}
+
 .bold {
     font-weight: 700;
 }
@@ -267,6 +274,6 @@ dl.dl-horizontal a dt {
 }
 
 .build-form-roomy {
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     margin-top: 20px;
 }
