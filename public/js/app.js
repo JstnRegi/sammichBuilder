@@ -1,5 +1,8 @@
 $(function () {
-
+    //$('#post-picture').submit(function(e) {
+    //    e.preventDefault();
+    //
+    //});
     renderUser();
     currentTab();
     buildSammich();
@@ -81,6 +84,8 @@ function currentTab() {
 
 var sammich = {};
 sammich.description = '';
+sammich.name = '';
+sammich.sammichType = '';
 
 var ingredient;
 var ingredients = [];
@@ -124,6 +129,27 @@ function buildSammich() {
         sammich.stats = stats;
 
         renderOverview();
+    });
+    $('#picture-form').submit(function(e) {
+        e.preventDefault();
+        var input = $('#image-input').val();
+        var imageFile = new FormData($(this)[0]);
+        if(input) {
+            $.ajax({
+                url: '/sammichpictures',
+                type: 'POST',
+                data: imageFile,
+                //Options to tell jQuery not to process data or worry about content-type.
+                cache: false,
+                contentType: false,
+                processData: false
+            }).done(function(data) {
+                sammich.picture = data.url;
+                renderOverview();
+            });
+        } else {
+            alert('Please select an image');
+        }
     });
     $('#directions-form').submit(function(e) {
         e.preventDefault();
@@ -176,6 +202,7 @@ function renderOverview() {
     var overviewHtml = overviewTemplate(sammich);
     $('#overview-info').empty();
     $('#overview-info').append(overviewHtml);
+    $('#overview-picture').css('background-image', 'url(' +  sammich.picture + ')').css('background-size', '100% 100%');
 }
 
 function saveBuild() {

@@ -14,7 +14,8 @@ var testSammich = {
         saltiness: 4,
         savory: 5
     },
-    vegetarian: false,
+    directions: 'Put the lime in the coconut',
+    picture: 'http://res.cloudinary.com/sandwichbuilder/image/upload/v1441956444/qpqx4oysrrgbtlh3jp6u.jpg',
     comments: ['test']
 };
 

@@ -6,6 +6,19 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var db = require('./models');
 var views = path.join(process.cwd(), 'views/');
+var files = path.join(process.cwd(), '/files/');
+var busboy = require('connect-busboy');
+var fs = require('fs');
+
+
+var cloudinary = require('cloudinary');
+
+cloudinary.config({
+    cloud_name: 'sandwichbuilder',
+    api_key: '863924945213321',
+    api_secret: 'gMbB_F4Bd4gqhcxtzn8g7U0icDg'
+});
+
 
 
 
@@ -68,6 +81,7 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use(busboy());
 
 //Routes
 app.get(['/', '/login'], function(req,res) {
@@ -172,6 +186,26 @@ app.post('/sammiches' , function(req, res) {
                 })
             });
         }
+    });
+});
+
+app.post('/sammichpictures', function(req, res, next) {
+    var fstream;
+    var image;
+    req.pipe(req.busboy);
+    req.busboy.on('file', function (fieldname, file, filename) {
+        console.log("Uploading: " + filename);
+        fstream = fs.createWriteStream(__dirname + '/files/' + filename);
+        file.pipe(fstream);
+        fstream.on('close', function () {
+            image = path.join(files, filename);
+            cloudinary.uploader.upload(image, function(result) {
+                console.log(result);
+                res.send(result);
+                //    filename + '<img src="' + result.url + '"/>')
+                //},  { public_id: "test_mario" }
+            })
+        });
     });
 });
 

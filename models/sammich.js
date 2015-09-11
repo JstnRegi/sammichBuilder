@@ -17,6 +17,7 @@ var sammichSchema = new Schema ({
     },
     ingredients: [],
     directions: String,
+    picture: String,
     comments: [/*logic to dynamically get comments here*/]
 });
 

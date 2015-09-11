@@ -148,6 +148,8 @@
                                                         <option>Dip</option>
                                                         <option>Open face sandwich</option>
                                                         <option>Hot sandwich</option>
+                                                        <option>Po boy</option>
+                                                        <option>Dessert</option>
                                                     </select>
                                                 </div>
                                                 <h3>Sandwich Description</h3>
@@ -182,9 +184,6 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul id="ingredients-list" class="list-unstyled">
-                                                <li class="ingredient-li">
-                                                    Ingredients go here
-                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -227,10 +226,17 @@
                                     </div>
                                 </div>
                                 <div id="picture-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
-                                    <h1>Picture of Sandwich</h1>
-
-                                    <a href="#menu-toggle" class="btn btn-default" onclick="">Toggle Menu</a>
-                                    <input type="text">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <h1 class="build-header">Picture of Sandwich</h1>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <form id="picture-form" class="text-center" action="/sammichpictures" method="post" enctype="multipart/form-data">
+                                                <input id="image-input" class="build-form-roomy" type="file" name="image"/>
+                                                <input id="image-submit" type="submit" class="btn btn-default" value="upload image"/>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div id="directions-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
                                     <div class="row">
@@ -249,7 +255,7 @@
                                 <div id="overview-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <h1 class="build-header">The Sandwich Build</h1>
+                                            <h1 id="overview-header" class="build-header">The Sandwich Build</h1>
                                         </div>
                                         <div id="overview-info" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -339,6 +345,7 @@
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 roomy">
                 <div id="overview-picture" class="building-layout">
+
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
@@ -346,15 +353,25 @@
 
                     <div id="dl-list" class="dl-horizontal text-left">
                         <dt>Name</dt>
-                        <dd class="text-left"><%= name %></dd>
+                        <dd> <% if(name) { %>
+                            <%= name %> <% } else { %>
+                            None Specified <% } %></dd>
+
+                        <dt>Type</dt>
+                        <dd><% if(sammichType) { %>
+                            <%= sammichType %> <% } else { %>
+                            None Specified <% } %></dd>
 
                         <dt>Description</dt>
                         <dd class="text-left"><% if(description) { %>
-                            <%= description %> <% } %> </dd>
+                            <%= description %> <% } else { %>
+                            None Specified <% } %></dd>
 
                         <dt>Materials</dt>
-                        <dd class="text-left"><% ingredients.forEach(function(e) {%>
-                            &#8226;<%= e %> &nbsp; <% }) %></dd>
+                        <dd class="text-left"><% if(ingredients.length !== 0) { %>
+                            <% ingredients.forEach(function(e) {%>
+                            &#8226;<%= e %> &nbsp; <% }) } else { %>
+                            None Specified <% } %></dd>
 
                         <dt>Stats</dt>
                         <dd><% if(stats.sweet) { %>
