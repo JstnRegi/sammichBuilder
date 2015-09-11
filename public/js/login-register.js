@@ -72,11 +72,34 @@ function showRegister() {
 }
 
 function register() {
+    var userData;
     $('#register-form').submit(function(e) {
         e.preventDefault();
-        var data = $(this).serialize();
-        $.post('/users', data, function(response) {
-            console.log(response);
+        userData = $(this).serialize();
+        var imageFile = new FormData($(this)[0]);
+
+        $.ajax({
+            url: '/userpictures',
+            type: 'POST',
+            data: imageFile,
+            //Options to tell jQuery not to process data or worry about content-type.
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function(data) {
+            var userQuery = (userData += '&picture%5D=' + data);
+            console.log(userData);
+            console.log(userQuery);
+            $.ajax({
+                url: '/users',
+                type: 'POST',
+                data: userQuery,
+                //Options to tell jQuery not to process data or worry about content-type.
+            }).done(function(data) {
+                console.log(data);
+                window.location.href = data;
+            });
         });
+
     })
 }

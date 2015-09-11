@@ -19,10 +19,11 @@ var UserSchema = new Schema ({
         type: Date,
         default: Date.now
     },
-    sammichBuilds: []
+    sammichBuilds: [],
+    picture: String
 });
 
-UserSchema.statics.createSecure = function(username, email, password, cb) {
+UserSchema.statics.createSecure = function(username, email, password, picture, cb) {
   // _this references our schema. Not to be confused with the primitive value 'this' later on during the function
     var _this = this;
     bcrypt.genSalt(function (err, salt) {
@@ -33,7 +34,8 @@ UserSchema.statics.createSecure = function(username, email, password, cb) {
                 username: username,
                 email: email,
                 passwordDigest: hash,
-                createdAt: Date.now()
+                createdAt: Date.now(),
+                picture: picture
             };
             //create a new user in the db witt he hashed password and execute the callback when done
             _this.create(user, cb);

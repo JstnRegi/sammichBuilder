@@ -134,7 +134,8 @@ app.get('/user', function(req, res) {
         } else {
             var data = {
                 username: user.username,
-                sammichBuilds: user.sammichBuilds
+                sammichBuilds: user.sammichBuilds,
+                picture: user.picture
             };
             res.send(data);
         }
@@ -207,17 +208,41 @@ app.post('/sammichpictures', function(req, res, next) {
     });
 });
 
-app.post('/users', function(req,res, next) {
+app.post('/users', function(req, res, next) {
     var user = req.body.user;
     var username = user.username;
     var email = user.email;
     var password = user.password;
+    var picture = req.body.picture;
+    console.log(req.body);
 
-    console.log('sanity');
-    db.User.createSecure(username, email, password, function(err, user) {
+
+    db.User.createSecure(username, email, password, picture, function(err, user) {
         console.log(user);
         req.login(user);
-        res.redirect('/home');
+        res.send('/home');
+    });
+
+
+});
+
+app.post('/userpictures', function(req, res) {
+    var fstream;
+    var image;
+    req.pipe(req.busboy);
+    req.busboy.on('file', function (fieldname, file, filename) {
+        console.log("Uploading: " + filename);
+        fstream = fs.createWriteStream(__dirname + '/files/' + filename);
+        file.pipe(fstream);
+        fstream.on('close', function () {
+            image = path.join(files, filename);
+            cloudinary.uploader.upload(image, function(result) {
+                console.log(result);
+                res.send(result.url);
+                //    filename + '<img src="' + result.url + '"/>')
+                //},  { public_id: "test_mario" }
+            })
+        });
     });
 });
 

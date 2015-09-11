@@ -17,7 +17,6 @@ function buildDetails() {
         $.get('/sammiches', {name: sammichInfo}, function(data) {
             var name = data.name || data;
 
-            imageUrl = data.picture;
 
             //$('#sandwich-picture').css('background-image', 'url(' + imageUrl + ')').css('background-size', '100% 100%');
             $('#vacant-title').empty();
@@ -35,16 +34,20 @@ function renderUser() {
     //ajax call to get current user info
     $.get('/user', function(data) {
         var username = data.username;
+        var icon = data.picture;
 
         $('#craftsmen-name').empty();
         $('#craftsmen-name').append(username);
+
+        $('#profile-icon').empty();
+        $('#profile-icon').css('background', 'url(' + icon + ')').css('background-size', '100% 100%');
         //console.log(typeof(data.sammichBuilds.sammichType));
         var sammichData = data.sammichBuilds;
         sammichData.forEach(function(e) {
 
             var sammichInfo = {
                 name: e.name,
-                description: e.description
+                description: e.description || 'No sandwiches created yet!'
             };
 
             var sammichHtml = buildTemplate(sammichInfo);
@@ -224,6 +227,8 @@ function saveBuild() {
         renderUser();
     })
 }
+
+
 
 
 

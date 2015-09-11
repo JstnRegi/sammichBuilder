@@ -23,7 +23,8 @@ var testSammich = {
 var testUser = {
     username: 'The Sandwich Sage',
     email: 'test@123',
-    password: 'qwertya'
+    password: 'qwertya',
+    picture: 'http://res.cloudinary.com/sandwichbuilder/image/upload/v1442005269/yh7hlnpa8huau5q1gcmo.jpg'
 };
 
 
@@ -42,8 +43,9 @@ db.User.remove({}, function(err, sammiches) {
 var username = testUser.username;
 var password = testUser.password;
 var email = testUser.email;
+var picture = testUser.password;
 
-db.User.createSecure(username, email, password, function(err, user) {
+db.User.createSecure(username, email, password, picture function(err, user) {
     if(err) {
         return console.log(err);
     } else {
