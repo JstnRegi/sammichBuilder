@@ -262,7 +262,7 @@
 
 <script type="text/template" id="build-template">
     <a id="<%= name %>"><dt><%= name %></dt></a>
-    <!--<dd><%= description %></dd>-->
+    <dd><%= description %></dd>
 </script>
 
 <script type="text/template" id="details-template">
@@ -361,7 +361,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
+                    <button id="save-build" type="button" class="btn btn-default" onclick="saveBuild()">Finalize Sandwich Build</button>
                 </div>
             </div>
         </div>

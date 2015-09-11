@@ -152,16 +152,25 @@ app.post('/sammiches' , function(req, res) {
         if (user === null) {
             res.sendFile(path.join(views, 'signup.html'));
         } else {
-            var data = {
-                username: user.username
-            };
-            user.sammichBuilds.push(testSammich);
+            console.log(req.body);
+            var newSammwich = req.body;
+            var username = user.username;
+            newSammwich.craftsman = username;
+            db.Sammich.create(newSammwich, function(err, sammich) {
+                if(err) {
+                    return console.log(err);
+                } else {
 
-            user.save(function(err, success) {
-                if(err) {return console.log(err);}
-                console.log("Sammich Build added Successfully");
+                }
+                user.sammichBuilds.push(sammich);
+                user.save(function(err, success) {
+                    if(err) {
+                        return console.log(err)
+                    }
+                    console.log('Pushed and saved a sandwich into user.');
+                    res.send(sammich);
+                })
             });
-            res.send(data);
         }
     });
 });

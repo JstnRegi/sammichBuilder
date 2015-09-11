@@ -1,8 +1,30 @@
 $(function () {
 
+    renderUser();
+    currentTab();
+    buildSammich();
+
+});
+
+
+
+function buildDetails() {
+    var sammich;
+    $('#build-list a').click(function() {
+        sammich = $(this).attr('id');
+        $.get('/sammiches', {name: sammich}, function(data) {
+            var name = data.name || data;
+            $('#vacant-title').empty();
+            $('<div >' + name + '</div>').hide().appendTo("#vacant-title").fadeIn('fast');
+            renderBuildArea(data);
+        });
+    });
+}
+
+function renderUser() {
 
     var buildTemplate = _.template($('#build-template').html());
-
+    $('#build-list').empty();
     //ajax call to get current user info
     $.get('/user', function(data) {
         var username = data.username;
@@ -17,30 +39,12 @@ $(function () {
                 description: e.description
             };
 
+            console.log(sammichInfo);
 
             var sammichHtml = buildTemplate(sammichInfo);
             $('#build-list').append(sammichHtml);
         });
-
         buildDetails();
-        currentTab();
-        buildSammich();
-    });
-
-//buildDetails();
-
-});
-
-function buildDetails() {
-    var sammich;
-    $('#build-list a').click(function() {
-        sammich = $(this).attr('id');
-        $.get('/sammiches', {name: sammich}, function(data) {
-            var name = data.name || data;
-            $('#vacant-title').empty();
-            $('<div >' + name + '</div>').hide().appendTo("#vacant-title").fadeIn('fast');
-            renderBuildArea(data);
-        });
     });
 }
 
@@ -174,8 +178,14 @@ function renderOverview() {
     var overviewHtml = overviewTemplate(sammich);
     $('#overview-info').empty();
     $('#overview-info').append(overviewHtml);
+}
 
-    console.log('test');
+function saveBuild() {
+    var sammichFinal = sammich;
+    $.post('/sammiches', sammichFinal, function(data) {
+        console.log(data);
+        renderUser();
+    })
 }
 
 
