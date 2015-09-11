@@ -45,7 +45,7 @@ var password = testUser.password;
 var email = testUser.email;
 var picture = testUser.password;
 
-db.User.createSecure(username, email, password, picture function(err, user) {
+db.User.createSecure(username, email, password, picture, function(err, user) {
     if(err) {
         return console.log(err);
     } else {
