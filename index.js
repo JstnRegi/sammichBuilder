@@ -174,16 +174,17 @@ app.post('/sammiches' , function(req, res) {
                 if(err) {
                     return console.log(err);
                 } else {
-
+                    user.sammichBuilds.push(sammich);
+                    console.log(user.sammichType);
+                    console.log(typeof(user.sammchType));
+                    user.save(function(err, success) {
+                        if(err) {
+                            return console.log(err)
+                        }
+                        console.log('Pushed and saved a sandwich into user.');
+                        res.send(sammich);
+                    })
                 }
-                user.sammichBuilds.push(sammich);
-                user.save(function(err, success) {
-                    if(err) {
-                        return console.log(err)
-                    }
-                    console.log('Pushed and saved a sandwich into user.');
-                    res.send(sammich);
-                })
             });
         }
     });

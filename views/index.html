@@ -49,7 +49,7 @@
     <div id="body-container" class="container col-sm-12 col-md-12 col-lg-12">
         <div class="row">
         <div id="profile-area" class="col-sm-8" >
-                <div class="col-sm-12">
+                <div id="craftsmen-container" class="col-xs-12 col-sm-12">
                     <div id="craftsmen-name" class="col-sm-6 title-color">
                     </div>
                 </div>
@@ -72,7 +72,7 @@
 
             </div>
             <div id="vacant" class="col-sm-4">
-                <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="col-sm-12">
                         <div  id="vacant-title" class="title-color">
                         </div>
@@ -281,9 +281,9 @@
 
 <script type="text/template" id="details-template">
     <div id="details-container">
-        <div id="sandwich-picture" class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
-        </div>
-        <div id="build-details" class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
+        <div id="sandwich-picture" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        </div> <br>
+        <div id="build-details" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div id="details-list" class="dl">
 
                 <dt id="dt-details" class="text-center">Sandwich type</dt>
@@ -328,16 +328,20 @@
                     </ul>
                 </dd>
             </div>
-
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div id="directions-header" class="text-center bold">
+                    Directions
+                </div>
+                <%= directions %>
+            </div>
         </div>
-
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-12">
-        <div id="comment-header" class="text-center bold">
-            Comments
-        </div>
-        <%= comments %>
-    </div>
+    <!--<div class="col-sm-12 col-md-12 col-lg-12">-->
+        <!--<div id="comment-header" class="text-center bold">-->
+            <!--Comments-->
+        <!--</div>-->
+        <!--<%= comments %>-->
+    <!--</div>-->
 </script>
 
 <script type="text/template" id="overview-template">
@@ -352,34 +356,34 @@
                 <div id="dl-container" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                     <div id="dl-list" class="dl-horizontal text-left">
-                        <dt>Name</dt>
+                        <dt class="overview-li-roomy">Name</dt>
                         <dd> <% if(name) { %>
                             <%= name %> <% } else { %>
                             None Specified <% } %></dd>
 
-                        <dt>Type</dt>
+                        <dt class="overview-li-roomy">Type</dt>
                         <dd><% if(sammichType) { %>
                             <%= sammichType %> <% } else { %>
                             None Specified <% } %></dd>
 
-                        <dt>Description</dt>
+                        <dt class="overview-li-roomy">Description</dt>
                         <dd class="text-left"><% if(description) { %>
                             <%= description %> <% } else { %>
                             None Specified <% } %></dd>
 
-                        <dt>Materials</dt>
+                        <dt class="overview-li-roomy">Materials</dt>
                         <dd class="text-left"><% if(ingredients.length !== 0) { %>
                             <% ingredients.forEach(function(e) {%>
                             &#8226;<%= e %> &nbsp; <% }) } else { %>
                             None Specified <% } %></dd>
 
-                        <dt>Stats</dt>
+                        <dt class="overview-li-roomy">Stats</dt>
                         <dd><% if(stats.sweet) { %>
                             Sweet: <%= stats.sweet %> &nbsp; Spicy: <%= stats.spicy %> &nbsp; Saltiness: <%= stats.saltiness %>
                             Savory: <%= stats.savory %> &nbsp; Sour: <%= stats.sour %> <% } else { %>
                             None Specified <% } %>  </dd>
 
-                        <dt>Directions</dt>
+                        <dt class="overview-li-roomy">Directions</dt>
                         <dd><% if(directions.length) { %>
                                 <%= directions %> <% } else { %>
                                 None Specified <% } %></dd>

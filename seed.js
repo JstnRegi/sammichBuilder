@@ -4,7 +4,7 @@ var db = require('./models');
 
 var testSammich = {
     name: 'The Fitz',
-    craftsman: 'sammichSage',
+    craftsman: 'The Sandwich Sage',
     description: 'It tastes awesome',
     sammichType: 'Traditional',
     stats: {
@@ -14,8 +14,9 @@ var testSammich = {
         saltiness: 4,
         savory: 5
     },
-    directions: 'Put the lime in the coconut',
-    picture: 'http://res.cloudinary.com/sandwichbuilder/image/upload/v1441956444/qpqx4oysrrgbtlh3jp6u.jpg',
+    directions: 'Never gonna give you up. Never gonna let you down. Never gonna run around and dessert you.',
+    ingredients: ['lettuce', 'tomato', 'provolone', 'turkey', 'rye bread'],
+    picture: 'http://res.cloudinary.com/sandwichbuilder/image/upload/v1441970565/veledqxmwvn7vock8yns.png',
     comments: ['test']
 };
 
@@ -56,25 +57,25 @@ db.User.createSecure(username, email, password, function(err, user) {
                     return console.log(err);
                 }
                 console.log('Sandwich added to user builds');
+                db.Sammich.find({}, function(err, sammiches) {
+                    if(err) {
+                        return console.log(err);
+                    }
+                    console.log(sammiches);
+                });
+
+                db.User.find({}, function(err, users) {
+                    if(err) {
+                        return console.log(err);
+                    }
+                    console.log(users);
+                });
             });
         });
         console.log('User added successfully');
     }
 });
 
-db.Sammich.find({}, function(err, sammiches) {
-   if(err) {
-       return console.log(err);
-   }
-    console.log(sammiches);
-});
-
-db.User.find({}, function(err, users) {
-   if(err) {
-       return console.log(err);
-   }
-    console.log(users);
-});
 
 
 

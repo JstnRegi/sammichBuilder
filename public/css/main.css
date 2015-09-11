@@ -41,16 +41,22 @@
 }
 
 #profile-area {
-    height: 530px;
+    height: 425px;
 }
 
 #craftsmen-name {
+    border-bottom: 1px solid #168172;
     font-family: 'Source Sans Pro', sans-serif;
     margin-left: 0px;
-    padding-bottom: 14px;
     font-size: 40px;
+    padding-bottom: 12px;
+    width: 600px;
+}
+
+#craftsmen-container {
     width: 100%;
     height: 131px;
+    padding-bottom: 14px;
 }
 
 #vacant-title {
@@ -58,7 +64,11 @@
     margin-left: 0px;
     margin-top: 12px;
     font-size: 30px;
-    height: 118px;
+    margin-bottom: 58px;
+    height: 60px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #168172;
+    width: 230px;
 }
 
 #profile-content {
@@ -115,41 +125,52 @@ dl.dl-horizontal a dt {
 }
 
 #profile-icon {
-    height: 175px;
+    height: 200px;
     margin: 30px auto 20px;
-    width: 175px;
+    width: 200px;
     padding: 0;
     background-color: rgba(0, 0, 0, 0.5);
+}
 
+#build-list dd {
+    font-size: 17px;
+}
+
+#build-list dt {
+    font-size: 17px;
 }
 
 #builds-title {
-    font-size: 30px;
+    font-size: 34px;
 }
 
 #details-container {
-    height: inherit + 20px;
-    width: inherit;
-    margin-left: 50px;
-    margin-right: auto;
     overflow-y: inherit;
 }
 
 #sandwich-picture {
-    height: 175px;
-    margin: 30px auto 20px;
-    width: 175px;
+    height: 200px;
+    margin: 25px auto 20px;
+    width: 200px;
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+
+#directions-header {
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 #dt-details {
     margin: 10px auto;
+    font-size: 20px;
 }
 
 #dd-details {
-    margin-left: auto;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 16px;
 }
 
 #build-details {
@@ -223,6 +244,15 @@ dl.dl-horizontal a dt {
     text-align: center;
 }
 
+.overview-li-roomy {
+    margin-bottom: 10px;
+}
+
+#dl-list {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
 #sandwich-type {
     width: 400px;
     margin-left: auto;
@@ -253,8 +283,6 @@ dl.dl-horizontal a dt {
 .layout {
     font-family: 'Source Sans Pro', sans-serif;
     background-color: #ffffff;
-    border: 1px solid #F0FB96;
-    border-radius: 2px;
 }
 
 .building-layout {

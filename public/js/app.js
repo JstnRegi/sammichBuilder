@@ -9,15 +9,20 @@ $(function () {
 });
 
 
-
+var imageUrl;
 function buildDetails() {
-    var sammich;
+    var sammichInfo;
     $('#build-list a').click(function() {
-        sammich = $(this).attr('id');
-        $.get('/sammiches', {name: sammich}, function(data) {
+        sammichInfo = $(this).attr('id');
+        $.get('/sammiches', {name: sammichInfo}, function(data) {
             var name = data.name || data;
+
+            imageUrl = data.picture;
+
+            //$('#sandwich-picture').css('background-image', 'url(' + imageUrl + ')').css('background-size', '100% 100%');
             $('#vacant-title').empty();
             $('<div >' + name + '</div>').hide().appendTo("#vacant-title").fadeIn('fast');
+
             renderBuildArea(data);
         });
     });
@@ -31,10 +36,10 @@ function renderUser() {
     $.get('/user', function(data) {
         var username = data.username;
 
-        $('#craftsmen-name').append(username);
 
+        $('#craftsmen-name').append(username);
+        //console.log(typeof(data.sammichBuilds.sammichType));
         var sammichData = data.sammichBuilds;
-        console.log(sammichData);
         sammichData.forEach(function(e) {
 
             var sammichInfo = {
@@ -52,7 +57,10 @@ function renderBuildArea(data) {
     var detailsTemplate = _.template($('#details-template').html());
     var detailsHtml = detailsTemplate(data);
     $('#vacant-content').empty();
-    $('#vacant-content').append(detailsHtml);
+    console.log(imageUrl);
+    //$('#vacant-content').hide().append(detailsHtml).fadeIn('fast');
+    $(detailsHtml).hide().appendTo('#vacant-content').fadeIn('fast');
+    $('#sandwich-picture').css('background-image', 'url(' +  imageUrl + ')').css('background-size', '100% 100%');
 }
 
 
@@ -170,10 +178,11 @@ function deleteIngredient(context) {
     ingredients.splice(targetPosition, 1);
 }
 
+//function build
+
 function saveIngredients() {
     finalIngredients = ingredients;
     sammich.ingredients = finalIngredients;
-    console.log(sammich.ingredients);
 }
 
 function expandNavLi(targetId) {
@@ -202,13 +211,15 @@ function renderOverview() {
     var overviewHtml = overviewTemplate(sammich);
     $('#overview-info').empty();
     $('#overview-info').append(overviewHtml);
+    if(sammich.picture) {
     $('#overview-picture').css('background-image', 'url(' +  sammich.picture + ')').css('background-size', '100% 100%');
+    }
 }
 
 function saveBuild() {
     var sammichFinal = sammich;
+    console.log(sammichFinal);
     $.post('/sammiches', sammichFinal, function(data) {
-        console.log(data);
         renderUser();
     })
 }
