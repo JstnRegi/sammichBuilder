@@ -17,7 +17,7 @@ function buildDetails() {
         $.get('/sammiches', {name: sammichInfo}, function(data) {
             var name = data.name || data;
 
-
+            imageUrl = data.picture;
             //$('#sandwich-picture').css('background-image', 'url(' + imageUrl + ')').css('background-size', '100% 100%');
             $('#vacant-title').empty();
             $('<div >' + name + '</div>').hide().appendTo("#vacant-title").fadeIn('fast');
@@ -39,10 +39,13 @@ function renderUser() {
         $('#craftsmen-name').empty();
         $('#craftsmen-name').append(username);
 
+
+
         $('#profile-icon').empty();
         $('#profile-icon').css('background', 'url(' + icon + ')').css('background-size', '100% 100%');
         //console.log(typeof(data.sammichBuilds.sammichType));
         var sammichData = data.sammichBuilds;
+        console.log(sammichData);
         sammichData.forEach(function(e) {
 
             var sammichInfo = {
