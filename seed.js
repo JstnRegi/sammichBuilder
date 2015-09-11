@@ -5,18 +5,18 @@ var db = require('./models');
 var testSammich = {
     name: 'The Fitz',
     craftsman: 'The Sandwich Sage',
-    description: 'It tastes awesome',
-    sammichType: 'Traditional',
+    description: 'The sandwich Jemma makes for Fitz from the Marvel show, "Agents of Shield',
+    sammichType: 'Traditional - cold',
     stats: {
-        sour: 1,
-        sweet: 2,
-        spicy: 3,
-        saltiness: 4,
-        savory: 5
+        sour: 10,
+        sweet: 26,
+        spicy: 4,
+        saltiness: 25,
+        savory: 35
     },
     directions: 'Never gonna give you up. Never gonna let you down. Never gonna run around and dessert you.',
-    ingredients: ['lettuce', 'tomato', 'provolone', 'turkey', 'rye bread'],
-    picture: 'http://res.cloudinary.com/sandwichbuilder/image/upload/v1441970565/veledqxmwvn7vock8yns.png',
+    ingredients: ['prosciutto', 'lettuce', 'tomato', 'provolone', 'turkey', 'rye bread', 'pesto aioli'],
+    picture: 'http://fangirlscook.com/wp-content/uploads/2015/05/Fitzsimmons-sandwich.jpg',
     comments: ['test']
 };
 

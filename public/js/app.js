@@ -36,7 +36,7 @@ function renderUser() {
     $.get('/user', function(data) {
         var username = data.username;
 
-
+        $('#craftsmen-name').empty();
         $('#craftsmen-name').append(username);
         //console.log(typeof(data.sammichBuilds.sammichType));
         var sammichData = data.sammichBuilds;
@@ -46,6 +46,7 @@ function renderUser() {
                 name: e.name,
                 description: e.description
             };
+
             var sammichHtml = buildTemplate(sammichInfo);
             $('#build-list').append(sammichHtml);
         });

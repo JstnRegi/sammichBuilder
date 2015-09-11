@@ -2,8 +2,15 @@ html, body, #login-register {
     height: 100%;
 }
 
-body {
-    background-image: url("/static/images/sandwic-cover.jpg") no-repeat center center fixed;
+html, body {
+    background: url("/static/images/sandwich-cover.jpg") no-repeat center center fixed;
+    background-size: 100%;
+}
+
+#submit-button {
+    border-radius: 0px;
+    background-color: rgba(10, 86, 165, 0.87);
+    border-width: 0px;
 }
 
 #login-register {
@@ -26,6 +33,11 @@ body {
 #pass-length {
     color: red;
     font-size: small;
+}
+
+#modal {
+    border-radius: 0px;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 #submit-container {
@@ -59,7 +71,7 @@ body {
     transition: all 0.1s linear;
 }
 .panel-login>.panel-heading a.active{
-    color: #029f5b;
+    color: #fed717;
     font-size: 18px;
 }
 .panel-login>.panel-heading hr{
