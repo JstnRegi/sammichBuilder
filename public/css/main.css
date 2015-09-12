@@ -1,6 +1,6 @@
-html, body {
-    background: url("/static/images/sandwiches.png") no-repeat center center fixed;
-    background-size: 100%;
+body {
+    background: url("/static/images/sandwiches.png") no-repeat center;
+    background-size: cover;
 }
 
 #title-splash {

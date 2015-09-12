@@ -2,9 +2,9 @@ html, body, #login-register {
     height: 100%;
 }
 
-html, body {
-    background: url("/static/images/sandwich-cover.jpg") no-repeat center center fixed;
-    background-size: 100%;
+body {
+    background: url("/static/images/sandwich-cover2.png") center;
+    background-size: cover;
 }
 
 #submit-button {
