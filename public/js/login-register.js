@@ -1,3 +1,5 @@
+// it: love the client-side form validations! some of this may be accomplished with native HTML form validations
+
 var minimumLength = 7;
 var formLength = 0;
 var backSpaceKey = 8;

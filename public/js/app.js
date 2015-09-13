@@ -1,3 +1,5 @@
+// solid job seperating function definitions outside page load
+// and calling on the functions once the page has loaded
 $(function () {
     //$('#post-picture').submit(function(e) {
     //    e.preventDefault();
@@ -96,6 +98,8 @@ function currentTab() {
         }
     );
 }
+
+// it: declare empty variable at the top of the code for better readability
 
 var sammich = {};
 sammich.description = '';

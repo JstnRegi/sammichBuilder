@@ -1,3 +1,7 @@
+/*
+  it: great use of class-based css overall in places like `logout-button`, `bold`, `roomy`, etc; avoid styling the `body` though.
+*/
+
 body {
     background: url("/static/images/sandwiches.png") no-repeat center;
     background-size: cover;

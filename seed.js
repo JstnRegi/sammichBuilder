@@ -30,13 +30,13 @@ var testUser = {
 
 db.Sammich.remove({}, function(err, sammiches) {
     if(err) {
-        return console.log(err);
+     console.log(err);
     }
 });
 
 db.User.remove({}, function(err, sammiches) {
     if(err) {
-        return console.log(err);
+     console.log(err);
     }
 });
 
@@ -47,28 +47,28 @@ var picture = testUser.picture;
 
 db.User.createSecure(username, email, password, picture, function(err, user) {
     if(err) {
-        return console.log(err);
+     console.log(err);
     } else {
         db.Sammich.create(testSammich, function(err, sammich) {
             if(err) {
-                return console.log(err);
+             console.log(err);
             }
             user.sammichBuilds.push(sammich);
             user.save(function(err, success) {
                 if(err) {
-                    return console.log(err);
+                 console.log(err);
                 }
                 console.log('Sandwich added to user builds');
                 db.Sammich.find({}, function(err, sammiches) {
                     if(err) {
-                        return console.log(err);
+                     console.log(err);
                     }
                     console.log(sammiches);
                 });
 
                 db.User.find({}, function(err, users) {
                     if(err) {
-                        return console.log(err);
+                     console.log(err);
                     }
                     console.log(users);
                 });
