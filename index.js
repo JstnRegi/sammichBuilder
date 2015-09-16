@@ -7,9 +7,12 @@ var session = require('express-session');
 var db = require('./models');
 var views = path.join(process.cwd(), 'views/');
 var files = path.join(process.cwd(), '/files/');
-var busboy = require('connect-busboy');
-var fs = require('fs');
 
+//middleware that handles file uploads through html forms
+var busboy = require('connect-busboy');
+
+
+var fs = require('fs');
 
 var cloudinary = require('cloudinary');
 
