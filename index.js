@@ -11,7 +11,7 @@ var files = path.join(process.cwd(), '/files/');
 //middleware that handles file uploads through html forms
 var busboy = require('connect-busboy');
 
-
+//file system to store uploaded pictures
 var fs = require('fs');
 
 var cloudinary = require('cloudinary');
